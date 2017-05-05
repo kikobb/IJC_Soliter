@@ -3,5 +3,5 @@ project(IJC_Soliter)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp model/Card.cpp model/Card.h)
 add_executable(IJC_Soliter ${SOURCE_FILES})
