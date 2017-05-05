@@ -4,23 +4,8 @@
 
 #include <cstdlib>
 #include "Card.h"
+#include "Color.h"
 
-class Card {
-
-public:
-    Card(int val, Color c); //konstruktor
-    Color color();
-    int value();
-    void turnFaceUp();
-    void turnFaceDown();
-    bool isTurnedFaceUp();
-    int compareValue(Card c);
-
-private:
-    int cardValue;
-    Color cardColor;
-    bool faceDirection;
-};
 //konstruktor
 Card::Card(int val, Color c){
     cardValue = val;

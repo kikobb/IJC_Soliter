@@ -5,20 +5,25 @@
 #ifndef IJC_SOLITER_CARD_H
 #define IJC_SOLITER_CARD_H
 
+#include "Color.h"
+
 //todo daj to do common header
 
-enum Color{
-    CLUBS,
-    DIAMONDS,
-    HEARTS,
-    SPADES
+class Card {
+
+public:
+    Card(int val, Color c); //konstruktor
+    Color color();
+    int value();
+    void turnFaceUp();
+    void turnFaceDown();
+    bool isTurnedFaceUp();
+    int compareValue(Card c);
+
+private:
+    int cardValue;
+    Color cardColor;
+    bool faceDirection;
 };
-
-//return true ak su karty rovnakej farby
-#define similarColors(a, b) (\
-                            (((a) == DIAMONDS || (a) == HEARTS) && ((b) == DIAMONDS || (b) == HEARTS)) ||\
-                            (((a) == SPADES || (a) == CLUBS) && ((b) == SPADES || (b) == CLUBS))\
-                            )
-
 
 #endif //IJC_SOLITER_CARD_H
