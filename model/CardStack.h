@@ -12,11 +12,12 @@ class CardStack : public CardDeck{
 
 public:
     bool put(CardStack * stack);
-    CardStack pop(Card * card);
+    CardStack* pop(Card * card);
+    using CardDeck::pop;
     void flush();
 
 private:
-    CardStack takeFrom(Card card);
+    CardStack* takeFrom(Card *card);
 
 };
 

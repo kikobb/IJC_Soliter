@@ -15,9 +15,9 @@ public:
     static CardDeck * createStandardDeck();
     int size();
     void put(Card *);
-    Card pop();
-    Card get();
-    Card get(int);
+    Card* pop();
+    Card* get();
+    Card* get(int);
     bool isEmpty();
 
 protected:

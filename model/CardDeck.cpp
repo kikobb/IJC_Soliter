@@ -28,15 +28,15 @@ int CardDeck::size() { return (int)deckStack.size();}
 void CardDeck::put(Card * c) {deckStack.push_back(c);}
 
 //todo skontroluj spravnost
-Card CardDeck::pop() {
-    Card ret = *deckStack[deckStack.size() - 1];
+Card * CardDeck::pop() {
+    Card * ret = deckStack[deckStack.size() - 1];
     deckStack.pop_back();
     return ret;
 }
 
-Card CardDeck::get() { return *deckStack[deckStack.size() - 1];}
+Card* CardDeck::get() { return deckStack[deckStack.size() - 1];}
 
-Card CardDeck::get(int i) { return *deckStack[i];}
+Card* CardDeck::get(int i) { return deckStack[i];}
 
 //todo skontroluj spravnost
 bool CardDeck::isEmpty() { return deckStack[0] == nullptr;}

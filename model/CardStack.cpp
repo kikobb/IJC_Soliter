@@ -13,9 +13,22 @@ bool CardStack::put(CardStack * stack) {
 
     //get nieje pop tj. karta tam ostane
     for (int i = 0; i < stack->size(); i++){
-        deckStack.push_back(stack->pop(()8));
-        deckStack;
-        deckStack.push_back();
+
+        deckStack.push_back(stack->pop());
     }
     return true;
+}
+
+CardStack CardStack::pop(Card *card) {
+    return takeFrom(card);
+}
+
+void CardStack::flush() {
+    for (int i = this->size(); i > 0; i--){
+        this->pop();
+    }
+}
+
+CardStack* CardStack::takeFrom(Card *card) {
+    int pos = deckStack.
 }
