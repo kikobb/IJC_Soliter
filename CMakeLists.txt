@@ -3,6 +3,9 @@ project(IJC_Soliter)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(GAME_FILES      game/Game.cpp game/Game.h
+        )
+
 set(MAIN_FILES  main.cpp
         )
 
@@ -10,5 +13,11 @@ set(MODEL_FILES     model/Color.h
                     model/Card.cpp model/Card.h
                     model/CardDeck.cpp model/CardDeck.h
                     model/CardStack.cpp model/CardStack.h
-        model/WorkingPack.cpp model/WorkingPack.h model/TargetStack.cpp model/TargetStack.h)
-add_executable(IJC_Soliter ${SOURCE_FILES})
+                    model/WorkingPack.cpp model/WorkingPack.h
+                    model/TargetStack.cpp model/TargetStack.h
+        )
+
+
+add_executable(Sol_model ${MODEL_FILES})
+add_executable(Sol_main ${MAIN_FILES})
+add_executable(Sol_game ${GAME_FILES})
