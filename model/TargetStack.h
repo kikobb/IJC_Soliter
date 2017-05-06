@@ -10,11 +10,12 @@
 #include "CardDeck.h"
 
 class TargetStack : public CardDeck{
-    public:
-        bool put(Card*);
-        Color getPackColor();
-    protected:
-        Color packColor;
+public:
+    TargetStack(Color);
+    bool put(Card*);
+    Color getPackColor();
+protected:
+    Color packColor;
 };
 
 
