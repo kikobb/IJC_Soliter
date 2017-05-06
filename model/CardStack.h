@@ -12,6 +12,7 @@ class CardStack : public CardDeck{
 
 public:
     bool put(CardStack * stack);
+    using CardDeck::put;
     CardStack* pop(Card * card);
     using CardDeck::pop;
     void flush();
