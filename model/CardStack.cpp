@@ -13,7 +13,6 @@ bool CardStack::put(CardStack * stack) {
 
     //get nieje pop tj. karta tam ostane
     for (int i = 0; i < stack->size(); i++){
-
         deckStack.push_back(stack->pop());
     }
     return true;
