@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(GAME_FILES      game/Game.cpp game/Game.h
                     game/History.cpp game/History.h
                     game/Help.cpp game/Help.h
+                    model/CardStack.cpp model/CardStack.h
+
         )
 
 set(MAIN_FILES  main.cpp

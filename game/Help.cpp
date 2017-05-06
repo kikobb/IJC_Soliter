@@ -5,7 +5,9 @@
 #include "Help.h"
 #include "Game.h"
 
-helpData Help::help(Game *game) {
+Help::Help(Game *g) {game = g;}
+
+bool Help::help() {
     int possibHelpNmbr = 0;
     //prehladanie moznosti s kartou na swapStack
     //targetStack
@@ -14,8 +16,9 @@ helpData Help::help(Game *game) {
             game->getTargetStack(i)->pop();
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
-                helpData tmp = {swapStackT, 0, targetStackT, i};
-                return tmp;
+                res.index_1 = swapStackT;
+                res.index_2 = targetStackT;
+                return true;
             }
         }
     }
@@ -25,8 +28,8 @@ helpData Help::help(Game *game) {
             game->getWorkingPack(i)->pop();
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
-                helpData tmp = {swapStackT, 0, workingPackT, i};
-                return tmp;
+                //res = {swapStackT, 0, workingPackT, i};
+                return true;
             }
         }
     }
@@ -38,8 +41,8 @@ helpData Help::help(Game *game) {
                 game->getTargetStack(j)->pop();
                 if (possibHelpNmbr++ == achvdPssbHlp) {
                     achvdPssbHlp++;
-                    helpData tmp = {workingPackT, i, targetStackT, j};
-                    return tmp;
+                    //res = {workingPackT, i, targetStackT, j};
+                    return true;
                 }
             }
         }
@@ -49,18 +52,22 @@ helpData Help::help(Game *game) {
         for (int j = 0; j < 7; j++){
             if (i == j)
                 continue;
-            if (game->getWorkingPack(j)->put(game->getWorkingPack(j)->get())){
-                game->getWorkingPack(j)->pop();
-                if (possibHelpNmbr++ == achvdPssbHlp) {
-                    achvdPssbHlp++;
-                    helpData tmp = {workingPackT, i, workingPackT, j};
-                return tmp;
+            for (int k = game->getWorkingPack(i)->size() -1; k >= 0; ++k) {
+                if (game->getWorkingPack(j)->put(game->getWorkingPack(i)->get(k))){
+                    game->getWorkingPack(j)->pop();
+                    if (possibHelpNmbr++ == achvdPssbHlp) {
+                        achvdPssbHlp++;
+                        //res = {workingPackT, i, workingPackT, j, game->getWorkingPack(j)->pop()};
+                        return true;
+                    }
                 }
             }
         }
     }
     resetHelp();
-    return nullptr;
+    return false;
 }
 
-void Help::resetHelp() {Help::achvdPssbHlp = 0;}
+void Help::resetHelp() {achvdPssbHlp = 0;}
+
+helpData Help::getResult() { return res;}

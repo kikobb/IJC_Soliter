@@ -29,7 +29,7 @@ void History::recordMove(boardElements src, int srcIndex, boardElements dest,
 }
 
 void History::recordMove(boardElements src, int srcIndex, boardElements dest,
-                         int destIndex, Card payloadHead, bool lastFaceUp) {
+                         int destIndex, Card *payloadHead, bool lastFaceUp) {
     if (position == size() - 1){
         addMove(src, srcIndex, dest, destIndex, payloadHead, lastFaceUp);
         position++;
@@ -40,13 +40,13 @@ void History::recordMove(boardElements src, int srcIndex, boardElements dest,
     }
 }
 
-histElement History::rollBack() {
+histElement* History::rollBack() {
     if (position == -1)
         return nullptr;
     return getMove(position--);
 }
 
-histElement History::rollForward() {
+histElement* History::rollForward() {
     if (position == size())
         return nullptr;
     return getMove(++position);
@@ -55,11 +55,11 @@ histElement History::rollForward() {
 int History::size() { return (int)gameHistElement.size();}
 
 void History::addMove(boardElements src, int srcIndex, boardElements dest,
-                      int destIndex, Card paylHd, bool lastFceUp) {
-    histElement tmp = {src, srcIndex, dest, destIndex, paylHd, lastFceUp};
+                      int destIndex, Card *paylHd, bool lastFceUp) {
+    histElement tmp = {src, srcIndex, dest, destIndex, *paylHd, lastFceUp};
     gameHistElement.push_back(tmp);
 }
 
 void History::removeMove() {gameHistElement.pop_back();}
 
-histElement History::getMove(int i) { return gameHistElement[i];}
+histElement* History::getMove(int i) { return &gameHistElement[i];}

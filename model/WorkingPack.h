@@ -11,7 +11,13 @@
 class WorkingPack : public CardStack{
     public:
         WorkingPack(CardStack *initStack);
-        bool put(Card*);
+        bool put(Card *);
+        bool put(CardStack *);
+        CardStack* get(Card *);
+        using CardStack::get;
+        void forcePut(Card *);
+        void forcePut(CardStack *);
+
 };
 
 #endif //IJC_SOLITER_WORKINGPACK_H

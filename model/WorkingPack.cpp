@@ -5,7 +5,6 @@
 #import "WorkingPack.h"
 
 bool WorkingPack::put(Card *card) {
-;
     //podmienka na prazdny stack berie len krala (13)
     if (this->isEmpty()){
         if (card->value() == 13){

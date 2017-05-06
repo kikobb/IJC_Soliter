@@ -24,18 +24,19 @@ public:
     void recordMove(boardElements src, int srcIndex, boardElements dest,
                     int destIndex, bool lastFaceUp);
     void recordMove(boardElements src, int srcIndex, boardElements dest,
-                    int destIndex, Card payloadHead, bool lastFaceUp);
-    histElement rollBack();
-    histElement rollForward();
+                    int destIndex, Card *payloadHead, bool lastFaceUp);
+    histElement* rollBack();
+    histElement* rollForward();
+
 private:
     static std::vector<struct histElement> gameHistElement;
     int position = -1;
 
     int size();
     static void addMove(boardElements src, int srcIndex, boardElements dest,
-                        int destIndex, Card paylHd, bool lastFceUp);
+                        int destIndex, Card *paylHd, bool lastFceUp);
     void removeMove();
-    histElement getMove(int);
+    histElement* getMove(int);
 
 };
 

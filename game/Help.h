@@ -12,16 +12,24 @@ struct helpData{
     int index_1;
     boardElements location_2;
     int index_2;
+    Card *payloadHead = nullptr;
 };
+
+
+//class Game;
 
 class Help {
 
 public:
-    helpData help(Game *);
+    Help(Game *);
+    bool help();
     void resetHelp();
+    helpData getResult();
 
 private:
+    helpData res;
     int achvdPssbHlp = 0;
+    Game *game;
 };
 
 

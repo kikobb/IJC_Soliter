@@ -19,6 +19,9 @@ public:
     void turnFaceDown();
     bool isTurnedFaceUp();
     int compareValue(Card c);
+    //overload
+    bool operator==(Card *c);
+
 
 private:
     int cardValue;

@@ -3,6 +3,8 @@
 //
 
 #include "Game.h"
+#include "History.h"
+#include "Help.h"
 #include "../model/CardDeck.h"
 #include "../model/CardStack.h"
 
@@ -13,7 +15,8 @@ Game::Game() {
     fillWorkingPacks(pullStack);
     swapStack = new CardDeck();
     history = new History;
-    help = new Help;
+    help = new Help(this);
+    achvdHeplNmbr = 0;
 }
 
 void Game::fillWorkingPacks(CardDeck *deck) {
@@ -36,12 +39,15 @@ void Game::initTargetStacks() {
 }
 
 bool Game::turnPullStack() {
-    if (!pullStack->isEmpty())
+    if (!pullStack->isEmpty()) {
         swapStack->put(pullStack->pop());
+        swapStack->get()->turnFaceUp();
+    }
     else
         if (!swapStack->isEmpty())
             for (int i = swapStack->size(); i > 0 ; --i) {
                 pullStack->put(swapStack->pop());
+                pullStack->get()->turnFaceDown();
             }
         else
             return false;
@@ -49,12 +55,15 @@ bool Game::turnPullStack() {
 }
 
 bool Game::reverseTurnPullStack() {
-    if (!swapStack->isEmpty())
+    if (!swapStack->isEmpty()) {
         pullStack->put(swapStack->pop());
+        pullStack->get()->turnFaceDown();
+    }
     else
         if (!pullStack->isEmpty())
             for (int i = pullStack->size(); i > 0; --i) {
                 swapStack->put(pullStack->pop());
+                swapStack->get()->turnFaceUp();
             }
         else
             return false;
@@ -67,4 +76,16 @@ WorkingPack* Game::getWorkingPack(int i) { return workingPacks[i];}
 TargetStack* Game::getTargetStack(int i) { return targetStacks[i];}
 
 CardDeck* Game::getSwapStack() { return swapStack;}
+
+History* Game::getHistory() { return history;}
+
+//bool Game::Help() {
+//    return help->help(this);}
+
+
+bool Game::isPullStackEmpty() { return pullStack->isEmpty();}
+
+//setter
+void Game::resetHelp(){help->resetHelp();}
+
 

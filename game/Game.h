@@ -8,9 +8,9 @@
 
 #include "../model/CardDeck.h"
 #include "../model/TargetStack.h"
-#include "History.h"
-#include "Help.h"
 #include "../model/WorkingPack.h"
+//#include "History.h"
+//#include "Help.h"
 
 enum boardElements{
     pullStackT,
@@ -20,9 +20,13 @@ enum boardElements{
     gameBoard
 };
 
+//forward declaration
+class History;
+class Help;
+
 class Game {
 
-protected:
+private:
     CardDeck *pullStack;
     CardDeck *swapStack;
     TargetStack *targetStacks[4];
@@ -31,7 +35,11 @@ protected:
     History *history;
     Help *help;
 
+    void fillWorkingPacks(CardDeck *deck);
+    void initTargetStacks();
+
 public:
+    int achvdHeplNmbr;
     Game(); //konstruktor
     bool turnPullStack();
     bool reverseTurnPullStack();
@@ -39,10 +47,12 @@ public:
     WorkingPack* getWorkingPack(int);
     TargetStack* getTargetStack(int);
     CardDeck* getSwapStack();
+    bool isPullStackEmpty();
+    History* getHistory();
 
-private:
-    void fillWorkingPacks(CardDeck *deck);
-    void initTargetStacks();
+    //bool Help();
+    void resetHelp();
+
 };
 
 

@@ -30,3 +30,8 @@ int Card::value() {return cardValue;}
 
 bool Card::isTurnedFaceUp() {return faceDirection;}
 
+bool Card::operator==(Card *c){
+    return (this->value() == c->value() && this->color() == c->color());
+}
+
+
