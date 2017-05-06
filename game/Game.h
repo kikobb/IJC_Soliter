@@ -9,8 +9,10 @@
 #include "../model/CardDeck.h"
 #include "../model/TargetStack.h"
 #include "../model/WorkingPack.h"
-//#include "History.h"
+
 //#include "Help.h"
+//#include "History.h"
+
 
 enum boardElements{
     pullStackT,
@@ -23,6 +25,7 @@ enum boardElements{
 //forward declaration
 class History;
 class Help;
+struct helpData;
 
 class Game {
 
@@ -50,7 +53,7 @@ public:
     bool isPullStackEmpty();
     History* getHistory();
 
-    //bool Help();
+    bool helper(helpData *);
     void resetHelp();
 
 };

@@ -7,6 +7,7 @@
 
 #include "Game.h"
 
+
 struct helpData{
     boardElements location_1;
     int index_1;
@@ -27,6 +28,7 @@ public:
     helpData getResult();
 
 private:
+    void fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c = nullptr);
     helpData res;
     int achvdPssbHlp = 0;
     Game *game;

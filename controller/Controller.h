@@ -16,8 +16,8 @@ public:
     Controller(Game *, ViewAbstractClass*);
     void rollBack();
     void rollForward();
-    void moove(boardElements src, int srcIndex = 0, boardElements dest,
-               int destIndex = 0, Card *payloadHead = nullptr);
+    void moove(boardElements src, int srcIndex, boardElements dest,
+               int destIndex, Card *payloadHead = nullptr);
     void help();
     bool save(std::string);
     void load(std::string);

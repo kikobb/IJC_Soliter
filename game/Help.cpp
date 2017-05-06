@@ -3,7 +3,6 @@
 //
 
 #include "Help.h"
-#include "Game.h"
 
 Help::Help(Game *g) {game = g;}
 
@@ -16,8 +15,7 @@ bool Help::help() {
             game->getTargetStack(i)->pop();
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
-                res.index_1 = swapStackT;
-                res.index_2 = targetStackT;
+                fill(res ,swapStackT, 0, targetStackT, i);
                 return true;
             }
         }
@@ -28,7 +26,7 @@ bool Help::help() {
             game->getWorkingPack(i)->pop();
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
-                //res = {swapStackT, 0, workingPackT, i};
+                fill(res ,swapStackT, 0, workingPackT, i);
                 return true;
             }
         }
@@ -41,7 +39,7 @@ bool Help::help() {
                 game->getTargetStack(j)->pop();
                 if (possibHelpNmbr++ == achvdPssbHlp) {
                     achvdPssbHlp++;
-                    //res = {workingPackT, i, targetStackT, j};
+                    fill(res, workingPackT, i, targetStackT, j);
                     return true;
                 }
             }
@@ -57,7 +55,7 @@ bool Help::help() {
                     game->getWorkingPack(j)->pop();
                     if (possibHelpNmbr++ == achvdPssbHlp) {
                         achvdPssbHlp++;
-                        //res = {workingPackT, i, workingPackT, j, game->getWorkingPack(j)->pop()};
+                        fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(j)->pop());
                         return true;
                     }
                 }
@@ -71,3 +69,12 @@ bool Help::help() {
 void Help::resetHelp() {achvdPssbHlp = 0;}
 
 helpData Help::getResult() { return res;}
+
+void Help::fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c) {
+    r.location_1 = l1;
+    r.index_1 = i1;
+    r.location_2 = l2;
+    r.index_2 = i2;
+    if (c != nullptr)
+        r.payloadHead = c;
+}

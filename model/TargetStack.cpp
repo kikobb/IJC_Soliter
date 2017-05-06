@@ -4,6 +4,8 @@
 
 #include "TargetStack.h"
 
+TargetStack::TargetStack(Color) {}
+
 bool TargetStack::put(Card *card) {
 
     if (this->isEmpty()){
@@ -23,3 +25,7 @@ bool TargetStack::put(Card *card) {
     }
     return false;
 }
+
+bool TargetStack::put(CardStack *) { return true;}
+
+Color* TargetStack::getPackColor() { return nullptr;}

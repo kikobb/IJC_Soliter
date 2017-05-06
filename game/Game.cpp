@@ -5,8 +5,6 @@
 #include "Game.h"
 #include "History.h"
 #include "Help.h"
-#include "../model/CardDeck.h"
-#include "../model/CardStack.h"
 
 //constructor
 Game::Game() {
@@ -79,8 +77,13 @@ CardDeck* Game::getSwapStack() { return swapStack;}
 
 History* Game::getHistory() { return history;}
 
-//bool Game::Help() {
-//    return help->help(this);}
+bool Game::helper(helpData *ret) {
+    if (help->help()){
+        *ret = help->getResult();
+        return true;
+    }
+    return false;
+}
 
 
 bool Game::isPullStackEmpty() { return pullStack->isEmpty();}

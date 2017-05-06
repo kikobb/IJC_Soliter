@@ -29,11 +29,11 @@ public:
     histElement* rollForward();
 
 private:
-    static std::vector<struct histElement> gameHistElement;
+    std::vector<struct histElement> gameHistElement;
     int position = -1;
 
     int size();
-    static void addMove(boardElements src, int srcIndex, boardElements dest,
+    void addMove(boardElements src, int srcIndex, boardElements dest,
                         int destIndex, Card *paylHd, bool lastFceUp);
     void removeMove();
     histElement* getMove(int);

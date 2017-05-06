@@ -2,7 +2,14 @@
 // Created by martin on 6.5.2017.
 //
 
-#import "WorkingPack.h"
+#include "WorkingPack.h"
+
+WorkingPack::WorkingPack(CardStack *initStack) {
+    int tmpSize = initStack->size();
+    for (int i = 0; i < tmpSize ; ++i) {
+        deckStack.push_back(initStack->get(i));
+    }
+}
 
 bool WorkingPack::put(Card *card) {
     //podmienka na prazdny stack berie len krala (13)
@@ -24,3 +31,11 @@ bool WorkingPack::put(Card *card) {
     } else
         return false;
 }
+
+bool WorkingPack::put(CardStack *) { return true;}
+
+CardStack* WorkingPack::get(Card *) { return nullptr;}
+
+void WorkingPack::forcePut(Card *) {}
+
+void WorkingPack::forcePut(CardStack *) {}

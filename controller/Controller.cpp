@@ -8,8 +8,8 @@
 
 Controller::Controller(Game *g, ViewAbstractClass* v) {game = g; view = v;}
 
-void Controller::moove(boardElements src, int srcIndex = 0, boardElements dest,
-                       int destIndex = 0, Card *payloadHead = nullptr) {
+void Controller::moove(boardElements src, int srcIndex, boardElements dest,
+                       int destIndex, Card *payloadHead) {
 
     //flag pre historiu
     bool lastTurnUp = false;
@@ -108,7 +108,8 @@ void Controller::rollForward() {
 }
 
 void Controller::help() {
-    helpData* result = game->getHelp()->help(game, game->getAchvdHelpNmbrPtr());
-    if (result == nullptr)
+    helpData* result = nullptr;
+    if (!game->helper(result))
         return;
+    //view->highlight()
 }

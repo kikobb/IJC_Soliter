@@ -13,7 +13,7 @@ public:
     TargetStack(Color);
     bool put(Card *);
     bool put(CardStack *);
-    Color getPackColor();
+    Color* getPackColor();
 protected:
     Color packColor;
 };
