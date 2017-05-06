@@ -6,9 +6,11 @@
 #define IJC_SOLITER_WORKINGPACK_H
 
 #include "CardDeck.h"
+#include "CardStack.h"
 
-class WorkingPack : public CardDeck{
+class WorkingPack : public CardStack{
     public:
+        WorkingPack(CardStack *initStack);
         bool put(Card*);
 };
 
