@@ -3,8 +3,10 @@ project(IJC_Soliter)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES    main.cpp
-                    model/Color.h
+set(MAIN_FILES  main.cpp
+        )
+
+set(MODEL_FILES     model/Color.h
                     model/Card.cpp model/Card.h
                     model/CardDeck.cpp model/CardDeck.h
                     model/CardStack.cpp model/CardStack.h
