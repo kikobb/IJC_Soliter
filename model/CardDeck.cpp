@@ -19,7 +19,6 @@ CardDeck * CardDeck::createStandardDeck() {
     for (int k = 0; k < pom.size() ; ++k) {
         retDeck->put(pom[k]);
     }
-
     return retDeck;
 }
 
