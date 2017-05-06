@@ -12,6 +12,14 @@
 #include "Help.h"
 #include "../model/WorkingPack.h"
 
+enum boardElements{
+    pullStackT,
+    swapStackT,
+    workingPackT,
+    targetStackT,
+    gameBoard
+};
+
 class Game {
 
 protected:
