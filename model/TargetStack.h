@@ -8,11 +8,13 @@
 #include "Color.h"
 #include "Card.h"
 #include "CardDeck.h"
+#include "CardStack.h"
 
 class TargetStack : public CardDeck{
 public:
     TargetStack(Color);
     bool put(Card*);
+    bool put(CardStack *);
     Color getPackColor();
 protected:
     Color packColor;
