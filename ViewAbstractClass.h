@@ -7,16 +7,15 @@
 
 #include "WorkingPack.h"
 #include "TargetStack.h"
-#include "Game.h"
 
 class ViewAbstractClass {
 
 public:
-    virtual void refresh(WorkingPack *, int);
-    virtual void refresh(TargetStack *, int);
-    virtual void refresh(CardDeck *);
-    virtual void refresh();
-    virtual void highlight(boardElements, int, boardElements, int);
+    virtual void refresh(WorkingPack *, int)=0;
+    virtual void refresh(TargetStack *, int)=0;
+    virtual void refresh(CardDeck *)=0;
+    virtual void refresh()=0;
+    //virtual void highlight(helpData)=0;
 };
 
 

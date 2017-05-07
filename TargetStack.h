@@ -12,8 +12,9 @@ class TargetStack : public CardDeck{
 public:
     TargetStack(Color);
     bool put(Card *);
-    bool put(CardStack *);
-    Color* getPackColor();
+    //bool put(CardStack *);
+    Color getPackColor();
+
 protected:
     Color packColor;
 };

@@ -55,7 +55,7 @@ bool Help::help() {
                     game->getWorkingPack(j)->pop();
                     if (possibHelpNmbr++ == achvdPssbHlp) {
                         achvdPssbHlp++;
-                        fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(j)->pop());
+                        fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(i)->get(k));
                         return true;
                     }
                 }

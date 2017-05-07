@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/martin/clion-2017.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/martin/clion-2017.1/bin/cmake/bin/cmake -E remove -f
+RM = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/martin/CLionProjects/IJC_Soliter
+CMAKE_SOURCE_DIR = /home/k/Documents/skola/IJC/test/IJC_Soliter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug
+CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Sol_controll.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Sol_controll.dir/flags.make
 
 CMakeFiles/Sol_controll.dir/Controller.cpp.o: CMakeFiles/Sol_controll.dir/flags.make
 CMakeFiles/Sol_controll.dir/Controller.cpp.o: ../Controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Sol_controll.dir/Controller.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_controll.dir/Controller.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/Controller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Sol_controll.dir/Controller.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_controll.dir/Controller.cpp.o -c /home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.cpp
 
 CMakeFiles/Sol_controll.dir/Controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_controll.dir/Controller.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/Controller.cpp > CMakeFiles/Sol_controll.dir/Controller.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.cpp > CMakeFiles/Sol_controll.dir/Controller.cpp.i
 
 CMakeFiles/Sol_controll.dir/Controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_controll.dir/Controller.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/Controller.cpp -o CMakeFiles/Sol_controll.dir/Controller.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.cpp -o CMakeFiles/Sol_controll.dir/Controller.cpp.s
 
 CMakeFiles/Sol_controll.dir/Controller.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Sol_controll.dir/Controller.cpp.o.provides.build: CMakeFiles/Sol_cont
 
 CMakeFiles/Sol_controll.dir/main.cpp.o: CMakeFiles/Sol_controll.dir/flags.make
 CMakeFiles/Sol_controll.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Sol_controll.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_controll.dir/main.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Sol_controll.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_controll.dir/main.cpp.o -c /home/k/Documents/skola/IJC/test/IJC_Soliter/main.cpp
 
 CMakeFiles/Sol_controll.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_controll.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/main.cpp > CMakeFiles/Sol_controll.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/test/IJC_Soliter/main.cpp > CMakeFiles/Sol_controll.dir/main.cpp.i
 
 CMakeFiles/Sol_controll.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_controll.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/main.cpp -o CMakeFiles/Sol_controll.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/test/IJC_Soliter/main.cpp -o CMakeFiles/Sol_controll.dir/main.cpp.s
 
 CMakeFiles/Sol_controll.dir/main.cpp.o.requires:
 
@@ -117,7 +117,7 @@ Sol_controll: CMakeFiles/Sol_controll.dir/Controller.cpp.o
 Sol_controll: CMakeFiles/Sol_controll.dir/main.cpp.o
 Sol_controll: CMakeFiles/Sol_controll.dir/build.make
 Sol_controll: CMakeFiles/Sol_controll.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Sol_controll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Sol_controll"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Sol_controll.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/Sol_controll.dir/clean:
 .PHONY : CMakeFiles/Sol_controll.dir/clean
 
 CMakeFiles/Sol_controll.dir/depend:
-	cd /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/martin/CLionProjects/IJC_Soliter /home/martin/CLionProjects/IJC_Soliter /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/k/Documents/skola/IJC/test/IJC_Soliter /home/k/Documents/skola/IJC/test/IJC_Soliter /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Sol_controll.dir/depend
 

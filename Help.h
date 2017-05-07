@@ -6,7 +6,6 @@
 #define IJC_SOLITER_HELP_H
 
 #include "Game.h"
-#include <iostream>
 
 
 struct helpData{
@@ -16,9 +15,6 @@ struct helpData{
     int index_2;
     Card *payloadHead = nullptr;
 };
-
-
-//class Game;
 
 class Help {
 

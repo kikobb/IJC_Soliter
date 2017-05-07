@@ -4,7 +4,7 @@
 
 #include "TargetStack.h"
 
-TargetStack::TargetStack(Color) {}
+TargetStack::TargetStack(Color color) {packColor = color;}
 
 bool TargetStack::put(Card *card) {
 
@@ -26,6 +26,6 @@ bool TargetStack::put(Card *card) {
     return false;
 }
 
-bool TargetStack::put(CardStack *) { return true;}
+//bool TargetStack::put(CardStack * stack) {  }
 
-Color* TargetStack::getPackColor() { return nullptr;}
+Color TargetStack::getPackColor() { return packColor;}
