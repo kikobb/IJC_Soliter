@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/Sol_controll.dir/Controller.cpp.o CMakeFiles/Sol_controll.dir/main.cpp.o  -o Sol_controll -rdynamic 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/Sol_model.dir/Card.cpp.o CMakeFiles/Sol_model.dir/CardDeck.cpp.o CMakeFiles/Sol_model.dir/CardStack.cpp.o CMakeFiles/Sol_model.dir/WorkingPack.cpp.o CMakeFiles/Sol_model.dir/TargetStack.cpp.o CMakeFiles/Sol_model.dir/main.cpp.o  -o Sol_model -rdynamic 

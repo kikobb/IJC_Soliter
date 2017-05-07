@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="IJC_Soliter"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_game">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_game"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_game/fast">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_game/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_controll">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_controll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_controll"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_controll/fast">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_controll" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_controll/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_main">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_main/fast">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_model">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_model" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_model"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Sol_model/fast">
+				<Option output="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Sol_model" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 Sol_model/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Card.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Card.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/CardDeck.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/CardDeck.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/CardStack.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/CardStack.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Color.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.cpp">
+			<Option target="Sol_controll"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.h">
+			<Option target="Sol_controll"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Game.cpp">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Game.h">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Help.cpp">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/Help.h">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/History.cpp">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/History.h">
+			<Option target="Sol_game"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/TargetStack.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/TargetStack.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/WorkingPack.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/WorkingPack.h">
+			<Option target="Sol_game"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/main.cpp">
+			<Option target="Sol_game"/>
+			<Option target="Sol_controll"/>
+			<Option target="Sol_main"/>
+			<Option target="Sol_model"/>
+		</Unit>
+		<Unit filename="/home/k/Documents/skola/IJC/test/IJC_Soliter/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

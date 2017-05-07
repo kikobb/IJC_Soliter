@@ -1,0 +1,6 @@
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_main.dir
+/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir
