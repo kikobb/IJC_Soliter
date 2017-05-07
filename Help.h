@@ -6,6 +6,7 @@
 #define IJC_SOLITER_HELP_H
 
 #include "Game.h"
+#include <iostream>
 
 
 struct helpData{

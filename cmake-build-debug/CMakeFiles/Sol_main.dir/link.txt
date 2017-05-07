@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/Sol_main.dir/main.cpp.o  -o Sol_main -rdynamic 

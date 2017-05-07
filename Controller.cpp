@@ -113,3 +113,7 @@ void Controller::help() {
         return;
     //view->highlight()
 }
+
+void Controller::timeTravel(histElement *){
+
+}
