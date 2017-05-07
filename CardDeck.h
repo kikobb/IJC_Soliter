@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file CardDeck.h.
+ *
+ * @author xbarna02
+ * 		   
+ * Declares the card deck class.
+ */
 
 #ifndef IJC_SOLITER_CARDDECK_H
 #define IJC_SOLITER_CARDDECK_H
@@ -9,6 +13,7 @@
 #include "Card.h"
 
 
+/** A card deck. */
 class CardDeck {
 
 public:

@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file TargetStack.h.
+ *
+ * @author xuhlia03
+ * 
+ * Declares the target stack class.
+ */
 
 #ifndef IJC_SOLITER_TARGETPACK_H
 #define IJC_SOLITER_TARGETPACK_H

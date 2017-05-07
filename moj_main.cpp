@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file moj_main.cpp.
+ *
+ * @author xuhlia03
+ * 		   
+ * Implements the moj main class.
+ */
 
 #include <iostream>
 

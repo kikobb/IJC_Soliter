@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Card.h.
+ *
+ * @author xbarna02
+ * 		   
+ * Declares the card class.
+ */
 
 #ifndef IJC_SOLITER_CARD_H
 #define IJC_SOLITER_CARD_H
@@ -9,9 +13,18 @@
 #include "Color.h"
 
 
+/** A card. */
 class Card {
 
 public:
+
+    /**
+     * Constructor.
+     *
+     * @param val The value.
+     * @param c   A Color to process.
+     */
+
     Card(int val, Color c); //konstruktor
     Color color();
     int value();

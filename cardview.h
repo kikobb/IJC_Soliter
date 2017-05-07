@@ -1,6 +1,11 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file C:\Users\jaime\Desktop\IJC_Soliter-master\cardview.h.
+ *
+ * @author xuhlia03
+ *
+ * Declares the cardview class.
+ */
+
 #ifndef CARDVIEW_H
 #define CARDVIEW_H
 

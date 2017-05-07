@@ -1,6 +1,10 @@
-//
-// Created by k on 6.5.2017.
-//
+/**
+ * @file C:\Users\jaime\Desktop\IJC_Soliter-master\Game.h.
+ *
+ * @author xbarna02
+ * 
+ * Declares the game class.
+ */
 
 #ifndef IJC_SOLITER_GAME_H
 #define IJC_SOLITER_GAME_H
@@ -10,6 +14,7 @@
 #include "TargetStack.h"
 #include "WorkingPack.h"
 
+/** Values that represent board elements. */
 enum boardElements{
     pullStackT,
     swapStackT,
@@ -18,11 +23,12 @@ enum boardElements{
     gameBoard
 };
 
-//forward declaration
+/** forward declaration. */
 class History;
 class Help;
 struct helpData;
 
+/** A game. */
 class Game {
 
 private:

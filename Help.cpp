@@ -1,10 +1,26 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Help.cpp.
+ *
+ * @author xuhlia03
+ * 		   
+ * Implements the help class.
+ */
 
 #include "Help.h"
 
+/**
+ * Constructor.
+ *
+ * @param [in,out] g If non-null, a Game to process.
+ */
+
 Help::Help(Game *g) {game = g;}
+
+/**
+ * Gets the help.
+ *
+ * @return Null if it fails, else a pointer to a helpData.
+ */
 
 helpData* Help::help() {
     int possibHelpNmbr = 0;
@@ -66,7 +82,19 @@ helpData* Help::help() {
     return nullptr;
 }
 
+/** Resets the help. */
 void Help::resetHelp() {achvdPssbHlp = 0;}
+
+/**
+ * Fills.
+ *
+ * @param [in,out] r  A helpData to process.
+ * @param 		   l1 The first boardElements.
+ * @param 		   i1 Zero-based index of the 1.
+ * @param 		   l2 The second boardElements.
+ * @param 		   i2 Zero-based index of the 2.
+ * @param [in,out] c  If non-null, a Card to process.
+ */
 
 void Help::fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c) {
     r.location_1 = l1;

@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file mainwindow.h.
+ *
+ * @author xuhlia03
+ * 
+ * Declares the mainwindow class.
+ */
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H

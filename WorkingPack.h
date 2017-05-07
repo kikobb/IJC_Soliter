@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file WorkingPack.h.
+ * 
+ * @author xuhlia03
+ * 
+ * Declares the working pack class.
+ */
 
 #ifndef IJC_SOLITER_WORKINGPACK_H
 #define IJC_SOLITER_WORKINGPACK_H

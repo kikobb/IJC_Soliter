@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file ConsoleView.h.
+ *
+ * @author xbarna02
+ * 	
+ * Declares the console view class.
+ */
 
 #ifndef IJC_SOLITER_CONSOLEVIEW_H
 #define IJC_SOLITER_CONSOLEVIEW_H

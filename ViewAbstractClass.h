@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file ViewAbstractClass.h.
+ * 
+ * @author xuhlia03
+ * 		   
+ * Declares the view abstract class class.
+ */
 
 #ifndef IJC_SOLITER_VIEWABSTRACTCLASS_H
 #define IJC_SOLITER_VIEWABSTRACTCLASS_H
@@ -8,6 +12,7 @@
 #include "WorkingPack.h"
 #include "TargetStack.h"
 
+/** A view abstract class. */
 class ViewAbstractClass {
 
 public:

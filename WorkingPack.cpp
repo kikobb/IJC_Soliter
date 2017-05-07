@@ -1,14 +1,32 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file WorkingPack.cpp.
+ *
+ * @author xuhlia03
+ * 		   
+ * Implements the working pack class.
+ */
 
 #include "WorkingPack.h"
+
+/**
+ * Constructor.
+ *
+ * @param [in,out] initStack If non-null, stack of initializes.
+ */
 
 WorkingPack::WorkingPack(CardStack *initStack) {
     for (int i = 0; i < initStack->size() ; ++i) {
         deckStack.push_back(initStack->get(i));
     }
 }
+
+/**
+ * Puts the given card to working pack.
+ *
+ * @param [in,out] card If non-null, the card to put.
+ *
+ * @return True if it succeeds, false if it fails.
+ */
 
 bool WorkingPack::put(Card *card) {
     //podmienka na prazdny stack berie len krala (13)
@@ -30,6 +48,14 @@ bool WorkingPack::put(Card *card) {
     } else
         return false;
 }
+
+/**
+ * Puts the given stack to working pack.
+ *
+ * @param [in,out] stack If non-null, the stack to put.
+ *
+ * @return True if it succeeds, false if it fails.
+ */
 
 bool WorkingPack::put(CardStack * stack) {
     if (stack == nullptr)
@@ -55,17 +81,45 @@ bool WorkingPack::put(CardStack * stack) {
         return false;
 }
 
+/**
+ * Gets a card stack* using the given card.
+ *
+ * @param [in,out] card If non-null, the card to get.
+ *
+ * @return Null if it fails, else a pointer to a CardStack.
+ */
+
 CardStack* WorkingPack::get(Card * card) { return takeFrom(card);}
+
+/**
+ * Force put one card
+ *
+ * @param [in,out] card If non-null, the card.
+ */
 
 void WorkingPack::forcePut(Card *card) {
     deckStack.push_back(card);
 }
+
+/**
+ * Force put whole stack.
+ *
+ * @param [in,out] stack If non-null, the stack.
+ */
 
 void WorkingPack::forcePut(CardStack *stack) {
     for (int i = 0; i < stack->size(); ++i) {
         deckStack.push_back(stack->get(i));
     }
 }
+
+/**
+ * Take from working pack.
+ *
+ * @param [in,out] card If non-null, the card.
+ *
+ * @return Null if it fails, else a pointer to a CardStack.
+ */
 
 CardStack* WorkingPack::takeFrom(Card * card) {
     int pos = -1;

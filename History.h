@@ -1,12 +1,17 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file History.h.
+ *
+ * @author xbarna02
+ * 
+ * Declares the history class.
+ */
 
 #ifndef IJC_SOLITER_HISTORY_H
 #define IJC_SOLITER_HISTORY_H
 
 #include "Game.h"
 
+/** A hist element. */
 struct histElement{
     boardElements src;
     int srcIndex;
@@ -16,6 +21,7 @@ struct histElement{
     bool lastaFaceUp;
 };
 
+/** A history. */
 class History {
 
 public:

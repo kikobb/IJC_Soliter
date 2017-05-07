@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Color.h.
+ *
+ * @author xbarna02
+ * 	
+ * Declares the color class.
+ */
 
 #ifndef IJC_SOLITER_COLOR_H
 #define IJC_SOLITER_COLOR_H

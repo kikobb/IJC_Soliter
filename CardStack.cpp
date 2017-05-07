@@ -1,9 +1,20 @@
-//
-// Created by xbarna02
-//
-
+/**
+ * @file CardStack.cpp.
+ *
+ * @author xbarna02
+ * 		   
+ * Implements the card stack class.
+ */
 
 #include "CardStack.h"
+
+/**
+ * Puts the given stack.
+ *
+ * @param [in,out] stack If non-null, the stack to put.
+ *
+ * @return True if it succeeds, false if it fails.
+ */
 
 bool CardStack::put(CardStack * stack) {
     if (stack == nullptr)
@@ -18,15 +29,32 @@ bool CardStack::put(CardStack * stack) {
     return true;
 }
 
+/**
+ * Removes and returns the top-of-stack card.
+ *
+ * @param [in,out] card If non-null, the card to pop.
+ *
+ * @return Null if it fails, else the previous top-of-stack object.
+ */
+
 CardStack* CardStack::pop(Card *card) {
     return takeFrom(card);
 }
 
+/** Flushes this object. */
 void CardStack::flush() {
     for (int i = this->size(); i > 0; i--){
         this->pop();
     }
 }
+
+/**
+ * Take from this stack the given card.
+ *
+ * @param [in,out] card If non-null, the card.
+ *
+ * @return Null if it fails, else a pointer to a CardStack.
+ */
 
 CardStack* CardStack::takeFrom(Card *card) {
     int pos = -1;
@@ -44,6 +72,7 @@ CardStack* CardStack::takeFrom(Card *card) {
         retStack->put(this->get(i));
     }
 
+    /** Size of the temporary old */
     int tmpOldSize = this->size();
 
     for (int i = this->size(); i < tmpOldSize; ++i) {

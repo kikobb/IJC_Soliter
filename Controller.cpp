@@ -1,11 +1,31 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Controller.cpp.
+ * 
+ * @author xbarna02
+ * 
+ * Implements the controller class.
+ */
 
 #include "Controller.h"
 
+/**
+ * Constructor.
+ *
+ * @param [in,out] g If non-null, a Game to process.
+ * @param [in,out] v If non-null, the ViewAbstractClass to process.
+ */
 
 Controller::Controller(Game *g, ViewAbstractClass* v) {game = g; view = v;}
+
+/**
+ * Mooves card or cards from source to destination.
+ *
+ * @param 		   src		   Source of the card.
+ * @param 		   srcIndex    Zero-based index of the source card.
+ * @param 		   dest		   Destination for the card(s).
+ * @param 		   destIndex   Zero-based index for the destination.
+ * @param [in,out] payloadHead If non-null, the payload head.
+ */
 
 void Controller::moove(boardElements src, int srcIndex, boardElements dest,
                        int destIndex, Card *payloadHead) {
@@ -91,6 +111,7 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
     }
 }
 
+/** Roll back. */
 void Controller::rollBack() {
     histElement* move = game->getHistory()->rollBack();
     if (move == nullptr)
@@ -99,6 +120,7 @@ void Controller::rollBack() {
 
 }
 
+/** Roll forward. */
 void Controller::rollForward() {
     histElement* move = game->getHistory()->rollForward();
     if (move == nullptr)
@@ -106,6 +128,7 @@ void Controller::rollForward() {
     timeTravel(move);
 }
 
+/** Help is used for giving the possible move to user */
 void Controller::help() {
     helpData* result = game->helper();
 
@@ -187,6 +210,12 @@ void Controller::help() {
 
     }
 }
+
+/**
+ * Time travel moves card or cards from destination to source.
+ *
+ * @param [in,out] travelCoord If non-null, the travel coordinate.
+ */
 
 void Controller::timeTravel(histElement * travelCoord) {
     //timetravel dava z destination veci do source

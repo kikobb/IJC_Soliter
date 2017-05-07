@@ -1,9 +1,17 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file mainwindow.cpp.
+ *
+ * Implements the mainwindow class.
+ */
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+/**
+ * Constructor.
+ *
+ * @param [in,out] parent If non-null, the parent.
+ */
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

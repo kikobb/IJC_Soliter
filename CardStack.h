@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file CardStack.h.
+ *
+ * @author xbarna02
+ * 		   
+ * Declares the card stack class.
+ */
 
 #ifndef IJC_SOLITER_CARDSTACK_H
 #define IJC_SOLITER_CARDSTACK_H

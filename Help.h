@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Help.h.
+ *
+ * @author xuhlia03
+ * 
+ * Declares the help class.
+ */
 
 #ifndef IJC_SOLITER_HELP_H
 #define IJC_SOLITER_HELP_H
@@ -8,6 +12,7 @@
 #include "Game.h"
 
 
+/** A help data. */
 struct helpData{
     boardElements location_1;
     int index_1;
@@ -16,6 +21,7 @@ struct helpData{
     Card *payloadHead = nullptr;
 };
 
+/** A help. */
 class Help {
 
 public:

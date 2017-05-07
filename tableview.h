@@ -1,6 +1,10 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file C:\Users\jaime\Desktop\IJC_Soliter-master\tableview.h.
+ *
+ * @author xuhlia03
+ * 
+ * Declares the tableview class.
+ */
 
 #ifndef TABLEVIEW_H
 #define TABLEVIEW_H

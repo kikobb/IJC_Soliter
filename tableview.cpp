@@ -1,9 +1,19 @@
-//
-// Created by xuhlia03
-//
+/**
+ * @file tableview.cpp.
+ *
+ * @author xuhlia03
+ * 		   
+ * Implements the tableview class.
+ */
 
 #include "tableview.h"
 #include "ui_tableview.h"
+
+/**
+ * Constructor.
+ *
+ * @param [in,out] parent If non-null, the parent.
+ */
 
 TableView::TableView(QWidget *parent) :
     QFrame(parent),
@@ -13,6 +23,7 @@ TableView::TableView(QWidget *parent) :
 
 }
 
+/** Destructor. */
 TableView::~TableView()
 {
     delete ui;

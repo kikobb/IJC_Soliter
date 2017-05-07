@@ -1,6 +1,10 @@
-//
-// Created by xbarna02
-//
+/**
+ * @file Controller.h.
+ *
+ * @author xbarna02
+ * 
+ * Declares the controller class.
+ */
 
 #ifndef IJC_SOLITER_CONTROLLER_H
 #define IJC_SOLITER_CONTROLLER_H
