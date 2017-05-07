@@ -15,7 +15,7 @@ public:
     virtual void refresh(TargetStack *, int)=0;
     virtual void refresh(CardDeck *)=0;
     virtual void refresh()=0;
-    virtual void highlight(boardElements, int, boardElements, int);
+    //virtual void highlight(helpData)=0;
 };
 
 

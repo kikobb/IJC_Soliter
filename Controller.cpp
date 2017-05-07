@@ -111,5 +111,8 @@ void Controller::help() {
     helpData* result = nullptr;
     if (!game->helper(result))
         return;
+   // view->highlight(*result);
+    //todo dokonci do backedu ku karte pridaj property highlight a vykresluj \
+    pomocou refresh
     //view->highlight()
 }

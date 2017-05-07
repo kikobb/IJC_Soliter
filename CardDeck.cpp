@@ -38,4 +38,4 @@ Card* CardDeck::get() { return deckStack[deckStack.size() - 1];}
 Card* CardDeck::get(int i) { return deckStack[i];}
 
 //todo skontroluj spravnost
-bool CardDeck::isEmpty() { return deckStack[0] == nullptr;}
+bool CardDeck::isEmpty() { return deckStack.empty();}

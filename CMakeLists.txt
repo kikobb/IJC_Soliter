@@ -14,9 +14,6 @@ set(GAME_FILES Game.cpp Game.h
 
         )
 
-set(MAIN_FILES  main.cpp
-        )
-
 set(MODEL_FILES Color.h
         Card.cpp Card.h
         CardDeck.cpp CardDeck.h
@@ -32,8 +29,8 @@ set(CONTROLL_FILES Controller.cpp Controller.h
 #        )
 
 
-add_executable(Sol_model ${MODEL_FILES} main.cpp)
-add_executable(Sol_main ${MAIN_FILES})
-add_executable(Sol_game ${GAME_FILES}  main.cpp)
-add_executable(Sol_controll ${CONTROLL_FILES}  main.cpp)
+add_executable(Sol_model ${MODEL_FILES} moj_main.cpp)
+add_executable(Sol_main moj_main.cpp)
+add_executable(Sol_game ${GAME_FILES} moj_main.cpp)
+add_executable(Sol_controll ${CONTROLL_FILES} moj_main.cpp)
 #add_executable(Sol_view ${VIEW_FILES})

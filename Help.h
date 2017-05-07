@@ -16,9 +16,6 @@ struct helpData{
     Card *payloadHead = nullptr;
 };
 
-
-//class Game;
-
 class Help {
 
 public:
