@@ -4,6 +4,7 @@
 
 #include "History.h"
 
+//todo vymaz tieto metody netreba polymorfizmus
 void History::recordMove(boardElements src, int srcIndex, boardElements dest,
                          bool lastFaceUp) {
     if (position == size() - 1){
@@ -56,7 +57,7 @@ int History::size() { return (int)gameHistElement.size();}
 
 void History::addMove(boardElements src, int srcIndex, boardElements dest,
                       int destIndex, Card *paylHd, bool lastFceUp) {
-    histElement tmp = {src, srcIndex, dest, destIndex, *paylHd, lastFceUp};
+    histElement tmp = {src, srcIndex, dest, destIndex, paylHd, lastFceUp};
     gameHistElement.push_back(tmp);
 }
 

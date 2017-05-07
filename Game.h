@@ -53,7 +53,7 @@ public:
     bool isPullStackEmpty();
     History* getHistory();
 
-    bool helper(helpData *);
+    helpData* helper();
     void resetHelp();
 
 };

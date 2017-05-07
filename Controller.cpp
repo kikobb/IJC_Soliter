@@ -3,8 +3,7 @@
 //
 
 #include "Controller.h"
-#include "History.h"
-#include "ViewAbstractClass.h"
+
 
 Controller::Controller(Game *g, ViewAbstractClass* v) {game = g; view = v;}
 
@@ -108,11 +107,138 @@ void Controller::rollForward() {
 }
 
 void Controller::help() {
-    helpData* result = nullptr;
-    if (!game->helper(result))
+    helpData* result = game->helper();
+
+    if (result == nullptr)
         return;
-   // view->highlight(*result);
-    //todo dokonci do backedu ku karte pridaj property highlight a vykresluj \
-    pomocou refresh
-    //view->highlight()
+
+    if (result->location_1 == swapStackT){
+        if(result->location_2 == targetStackT){
+            //nastavenie highlightu ON
+            game->getSwapStack()->get()->turnOnCard();
+            game->getTargetStack(result->index_2)->get()->turnOnCard();
+            //prekreslenie vo view
+            view->refresh(game->getSwapStack());
+            view->refresh(game->getTargetStack(result->index_2), result->index_2);
+            //wait
+            SLEEP(2000);
+            //nastavenie highlightu OFF
+            game->getSwapStack()->get()->turnOffCard();
+            game->getTargetStack(result->index_2)->get()->turnOffCard();
+            //prekreslenie vo view
+            view->refresh(game->getSwapStack());
+            view->refresh(game->getTargetStack(result->index_2), result->index_2);
+        } else{
+            //workingPack
+            //nastavenie highlightu ON
+            game->getSwapStack()->get()->turnOnCard();
+            game->getWorkingPack(result->index_2)->get()->turnOnCard();
+            //prekreslenie vo view
+            view->refresh(game->getSwapStack());
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+            //wait
+            SLEEP(2000);
+            //nastavenie highlightu OFF
+            game->getSwapStack()->get()->turnOffCard();
+            game->getWorkingPack(result->index_2)->get()->turnOffCard();
+            //prekreslenie vo view
+            view->refresh(game->getSwapStack());
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+        }
+    } else {
+        //pre wokingPack
+        if (result->location_2 == targetStackT){
+            //nastavenie highlightu ON
+            game->getWorkingPack(result->index_1)->get()->turnOnCard();
+            game->getTargetStack(result->index_2)->get()->turnOnCard();
+            //prekreslenie vo view
+            view->refresh(game->getWorkingPack(result->index_1), result->index_1);
+            view->refresh(game->getTargetStack(result->index_2), result->index_2);
+            //wait
+            SLEEP(2000);
+            //nastavenie highlightu OFF
+            game->getWorkingPack(result->index_1)->get()->turnOffCard();
+            game->getTargetStack(result->index_2)->get()->turnOffCard();
+            //prekreslenie vo view
+            view->refresh(game->getWorkingPack(result->index_1), result->index_1);
+            view->refresh(game->getTargetStack(result->index_2), result->index_2);
+        } else{
+            //pre workingPack
+            //nastavenie highlightu ON
+            CardStack* pomStack = game->getWorkingPack(result->index_1)->get(result->payloadHead);
+            for (int i = 0; i < pomStack->size(); ++i) {
+                pomStack->get(i)->turnOnCard();
+            }
+            game->getWorkingPack(result->index_2)->get()->turnOnCard();
+            //prekreslenie vo view
+            view->refresh(game->getWorkingPack(result->index_1), result->index_1);
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+            //wait
+            SLEEP(2000);
+            //nastavenie highlightu OFF
+            for (int i = 0; i < pomStack->size(); ++i) {
+                pomStack->get(i)->turnOffCard();
+            }
+            game->getWorkingPack(result->index_2)->get()->turnOffCard();
+            //prekreslenie vo view
+            view->refresh(game->getWorkingPack(result->index_1), result->index_1);
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+        }
+
+    }
+}
+
+void Controller::timeTravel(histElement * travelCoord) {
+    //timetravel dava z destination veci do source
+
+    //pullSatck klik (prehodi odkaldaci naspet balicek)
+    if (travelCoord->dest == pullStackT && travelCoord->src == pullStackT){
+        game->reverseTurnPullStack();
+        view->refresh(game->getSwapStack());
+        if (game->isPullStackEmpty())
+            view->refresh();
+    }
+
+    //tergetStack to swap
+    if (travelCoord->src == swapStackT && travelCoord->dest == targetStackT){
+        game->getSwapStack()->put(game->getTargetStack(travelCoord->destIndex)->pop());
+        view->refresh(game->getTargetStack(travelCoord->destIndex), travelCoord->destIndex);
+        view->refresh(game->getSwapStack());
+    }
+
+    //workingPack to swap
+    if (travelCoord->src == swapStackT && travelCoord->dest == workingPackT){
+        game->getSwapStack()->put(game->getWorkingPack(travelCoord->destIndex)->pop());
+        view->refresh(game->getWorkingPack(travelCoord->destIndex), travelCoord->destIndex);
+        view->refresh(game->getSwapStack());
+    }
+
+    //workingPack to targetStack
+    if (travelCoord->src == targetStackT && travelCoord->dest == workingPackT){
+        game->getTargetStack(travelCoord->srcIndex)->put(game->getWorkingPack(travelCoord->destIndex)->pop());
+        view->refresh(game->getTargetStack(travelCoord->srcIndex), travelCoord->srcIndex);
+        view->refresh(game->getWorkingPack(travelCoord->destIndex), travelCoord->destIndex);
+    }
+
+    //targetStack to workingPack
+    if (travelCoord->src == workingPackT && travelCoord->dest == targetStackT){
+        //nastavenie spravneho otocenia karty na ktoru sa to uklada
+        if (travelCoord->lastaFaceUp) {
+            game->getWorkingPack(travelCoord->srcIndex)->get()->turnFaceDown();
+        }
+        game->getWorkingPack(travelCoord->srcIndex)->forcePut(game->getTargetStack(travelCoord->destIndex)->pop());
+        view->refresh(game->getWorkingPack(travelCoord->srcIndex), travelCoord->srcIndex);
+        view->refresh(game->getTargetStack(travelCoord->destIndex), travelCoord->destIndex);
+    }
+
+    //workingPack to workingPack
+    if (travelCoord->src == workingPackT && travelCoord->dest == workingPackT){
+        if (travelCoord->lastaFaceUp) {
+            game->getWorkingPack(travelCoord->srcIndex)->get()->turnFaceDown();
+        }
+        game->getWorkingPack(travelCoord->srcIndex)->forcePut(game->getWorkingPack(travelCoord->destIndex)->pop(travelCoord->payloadHead));
+        view->refresh(game->getWorkingPack(travelCoord->destIndex), travelCoord->destIndex);
+        view->refresh(game->getWorkingPack(travelCoord->srcIndex), travelCoord->srcIndex);
+    }
+
 }

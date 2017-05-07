@@ -20,9 +20,9 @@ class Help {
 
 public:
     Help(Game *);
-    bool help();
+    //vracia pointer na vysledok helpu, ak nieje mozny tah, vracia nullptr
+    helpData* help();
     void resetHelp();
-    helpData getResult();
 
 private:
     void fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c = nullptr);

@@ -12,7 +12,7 @@ struct histElement{
     int srcIndex;
     boardElements dest;
     int destIndex;
-    Card payloadHead;
+    Card* payloadHead;
     bool lastaFaceUp;
 };
 

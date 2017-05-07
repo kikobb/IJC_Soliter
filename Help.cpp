@@ -6,7 +6,7 @@
 
 Help::Help(Game *g) {game = g;}
 
-bool Help::help() {
+helpData* Help::help() {
     int possibHelpNmbr = 0;
     //prehladanie moznosti s kartou na swapStack
     //targetStack
@@ -16,7 +16,7 @@ bool Help::help() {
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
                 fill(res ,swapStackT, 0, targetStackT, i);
-                return true;
+                return &res;
             }
         }
     }
@@ -27,7 +27,7 @@ bool Help::help() {
             if (possibHelpNmbr++ == achvdPssbHlp){
                 achvdPssbHlp++;
                 fill(res ,swapStackT, 0, workingPackT, i);
-                return true;
+                return &res;
             }
         }
     }
@@ -40,7 +40,7 @@ bool Help::help() {
                 if (possibHelpNmbr++ == achvdPssbHlp) {
                     achvdPssbHlp++;
                     fill(res, workingPackT, i, targetStackT, j);
-                    return true;
+                    return &res;
                 }
             }
         }
@@ -56,19 +56,17 @@ bool Help::help() {
                     if (possibHelpNmbr++ == achvdPssbHlp) {
                         achvdPssbHlp++;
                         fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(i)->get(k));
-                        return true;
+                        return &res;
                     }
                 }
             }
         }
     }
     resetHelp();
-    return false;
+    return nullptr;
 }
 
 void Help::resetHelp() {achvdPssbHlp = 0;}
-
-helpData Help::getResult() { return res;}
 
 void Help::fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c) {
     r.location_1 = l1;

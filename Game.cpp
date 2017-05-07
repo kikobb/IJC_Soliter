@@ -77,12 +77,8 @@ CardDeck* Game::getSwapStack() { return swapStack;}
 
 History* Game::getHistory() { return history;}
 
-bool Game::helper(helpData *ret) {
-    if (help->help()){
-        *ret = help->getResult();
-        return true;
-    }
-    return false;
+helpData* Game::helper() {
+    return help->help();
 }
 
 
