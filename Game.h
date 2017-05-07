@@ -10,10 +10,6 @@
 #include "TargetStack.h"
 #include "WorkingPack.h"
 
-//#include "Help.h"
-//#include "History.h"
-
-
 enum boardElements{
     pullStackT,
     swapStackT,

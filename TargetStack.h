@@ -1,5 +1,5 @@
 //
-// Created by martin on 6.5.2017.
+// Created by xuhlia03
 //
 
 #ifndef IJC_SOLITER_TARGETPACK_H

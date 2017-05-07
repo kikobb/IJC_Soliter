@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/martin/clion-2017.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
+RM = /home/martin/clion-2017.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/k/Documents/skola/IJC/IJC_Soliter
+CMAKE_SOURCE_DIR = /home/martin/CLionProjects/IJC_Soliter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug
+CMAKE_BINARY_DIR = /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Sol_model.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Sol_model.dir/flags.make
 
 CMakeFiles/Sol_model.dir/Card.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/Card.cpp.o: ../Card.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Sol_model.dir/Card.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/Card.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/Card.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Sol_model.dir/Card.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/Card.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/Card.cpp
 
 CMakeFiles/Sol_model.dir/Card.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/Card.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/Card.cpp > CMakeFiles/Sol_model.dir/Card.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/Card.cpp > CMakeFiles/Sol_model.dir/Card.cpp.i
 
 CMakeFiles/Sol_model.dir/Card.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/Card.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/Card.cpp -o CMakeFiles/Sol_model.dir/Card.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/Card.cpp -o CMakeFiles/Sol_model.dir/Card.cpp.s
 
 CMakeFiles/Sol_model.dir/Card.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Sol_model.dir/Card.cpp.o.provides.build: CMakeFiles/Sol_model.dir/Car
 
 CMakeFiles/Sol_model.dir/CardDeck.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/CardDeck.cpp.o: ../CardDeck.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Sol_model.dir/CardDeck.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/CardDeck.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/CardDeck.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Sol_model.dir/CardDeck.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/CardDeck.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/CardDeck.cpp
 
 CMakeFiles/Sol_model.dir/CardDeck.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/CardDeck.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/CardDeck.cpp > CMakeFiles/Sol_model.dir/CardDeck.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/CardDeck.cpp > CMakeFiles/Sol_model.dir/CardDeck.cpp.i
 
 CMakeFiles/Sol_model.dir/CardDeck.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/CardDeck.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/CardDeck.cpp -o CMakeFiles/Sol_model.dir/CardDeck.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/CardDeck.cpp -o CMakeFiles/Sol_model.dir/CardDeck.cpp.s
 
 CMakeFiles/Sol_model.dir/CardDeck.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/Sol_model.dir/CardDeck.cpp.o.provides.build: CMakeFiles/Sol_model.dir
 
 CMakeFiles/Sol_model.dir/CardStack.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/CardStack.cpp.o: ../CardStack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Sol_model.dir/CardStack.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/CardStack.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/CardStack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Sol_model.dir/CardStack.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/CardStack.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/CardStack.cpp
 
 CMakeFiles/Sol_model.dir/CardStack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/CardStack.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/CardStack.cpp > CMakeFiles/Sol_model.dir/CardStack.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/CardStack.cpp > CMakeFiles/Sol_model.dir/CardStack.cpp.i
 
 CMakeFiles/Sol_model.dir/CardStack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/CardStack.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/CardStack.cpp -o CMakeFiles/Sol_model.dir/CardStack.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/CardStack.cpp -o CMakeFiles/Sol_model.dir/CardStack.cpp.s
 
 CMakeFiles/Sol_model.dir/CardStack.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/Sol_model.dir/CardStack.cpp.o.provides.build: CMakeFiles/Sol_model.di
 
 CMakeFiles/Sol_model.dir/WorkingPack.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/WorkingPack.cpp.o: ../WorkingPack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Sol_model.dir/WorkingPack.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/WorkingPack.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/WorkingPack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Sol_model.dir/WorkingPack.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/WorkingPack.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/WorkingPack.cpp
 
 CMakeFiles/Sol_model.dir/WorkingPack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/WorkingPack.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/WorkingPack.cpp > CMakeFiles/Sol_model.dir/WorkingPack.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/WorkingPack.cpp > CMakeFiles/Sol_model.dir/WorkingPack.cpp.i
 
 CMakeFiles/Sol_model.dir/WorkingPack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/WorkingPack.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/WorkingPack.cpp -o CMakeFiles/Sol_model.dir/WorkingPack.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/WorkingPack.cpp -o CMakeFiles/Sol_model.dir/WorkingPack.cpp.s
 
 CMakeFiles/Sol_model.dir/WorkingPack.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/Sol_model.dir/WorkingPack.cpp.o.provides.build: CMakeFiles/Sol_model.
 
 CMakeFiles/Sol_model.dir/TargetStack.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/TargetStack.cpp.o: ../TargetStack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Sol_model.dir/TargetStack.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/TargetStack.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/TargetStack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Sol_model.dir/TargetStack.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/TargetStack.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/TargetStack.cpp
 
 CMakeFiles/Sol_model.dir/TargetStack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/TargetStack.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/TargetStack.cpp > CMakeFiles/Sol_model.dir/TargetStack.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/TargetStack.cpp > CMakeFiles/Sol_model.dir/TargetStack.cpp.i
 
 CMakeFiles/Sol_model.dir/TargetStack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/TargetStack.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/TargetStack.cpp -o CMakeFiles/Sol_model.dir/TargetStack.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/TargetStack.cpp -o CMakeFiles/Sol_model.dir/TargetStack.cpp.s
 
 CMakeFiles/Sol_model.dir/TargetStack.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/Sol_model.dir/TargetStack.cpp.o.provides.build: CMakeFiles/Sol_model.
 
 CMakeFiles/Sol_model.dir/moj_main.cpp.o: CMakeFiles/Sol_model.dir/flags.make
 CMakeFiles/Sol_model.dir/moj_main.cpp.o: ../moj_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Sol_model.dir/moj_main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/moj_main.cpp.o -c /home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Sol_model.dir/moj_main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sol_model.dir/moj_main.cpp.o -c /home/martin/CLionProjects/IJC_Soliter/moj_main.cpp
 
 CMakeFiles/Sol_model.dir/moj_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sol_model.dir/moj_main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp > CMakeFiles/Sol_model.dir/moj_main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/martin/CLionProjects/IJC_Soliter/moj_main.cpp > CMakeFiles/Sol_model.dir/moj_main.cpp.i
 
 CMakeFiles/Sol_model.dir/moj_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sol_model.dir/moj_main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp -o CMakeFiles/Sol_model.dir/moj_main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/martin/CLionProjects/IJC_Soliter/moj_main.cpp -o CMakeFiles/Sol_model.dir/moj_main.cpp.s
 
 CMakeFiles/Sol_model.dir/moj_main.cpp.o.requires:
 
@@ -221,7 +221,7 @@ Sol_model: CMakeFiles/Sol_model.dir/TargetStack.cpp.o
 Sol_model: CMakeFiles/Sol_model.dir/moj_main.cpp.o
 Sol_model: CMakeFiles/Sol_model.dir/build.make
 Sol_model: CMakeFiles/Sol_model.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Sol_model"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Sol_model"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Sol_model.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -243,6 +243,6 @@ CMakeFiles/Sol_model.dir/clean:
 .PHONY : CMakeFiles/Sol_model.dir/clean
 
 CMakeFiles/Sol_model.dir/depend:
-	cd /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/k/Documents/skola/IJC/IJC_Soliter /home/k/Documents/skola/IJC/IJC_Soliter /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/martin/CLionProjects/IJC_Soliter /home/martin/CLionProjects/IJC_Soliter /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Sol_model.dir/depend
 

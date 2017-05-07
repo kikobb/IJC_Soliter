@@ -4,15 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/k/Documents/skola/IJC/IJC_Soliter/Card.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Card.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/CardDeck.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/CardDeck.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/CardStack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/CardStack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/Game.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Game.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/Help.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Help.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/History.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/History.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/TargetStack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/TargetStack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/WorkingPack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/WorkingPack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/moj_main.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/Card.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Card.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/CardDeck.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/CardDeck.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/CardStack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/CardStack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/ConsoleView.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/ConsoleView.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/Game.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Game.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/Help.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/Help.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/History.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/History.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/TargetStack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/TargetStack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/WorkingPack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/WorkingPack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/moj_main.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_game.dir/moj_main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_main.dir/moj_main.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/moj_main.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_main.dir/moj_main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

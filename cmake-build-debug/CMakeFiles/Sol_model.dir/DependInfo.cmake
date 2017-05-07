@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/k/Documents/skola/IJC/IJC_Soliter/Card.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/Card.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/CardDeck.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/CardDeck.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/CardStack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/CardStack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/TargetStack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/TargetStack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/WorkingPack.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/WorkingPack.cpp.o"
-  "/home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/moj_main.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/Card.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/Card.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/CardDeck.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/CardDeck.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/CardStack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/CardStack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/TargetStack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/TargetStack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/WorkingPack.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/WorkingPack.cpp.o"
+  "/home/martin/CLionProjects/IJC_Soliter/moj_main.cpp" "/home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_model.dir/moj_main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

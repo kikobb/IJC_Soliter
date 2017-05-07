@@ -1,5 +1,5 @@
 //
-// Created by k on 5.5.2017.
+// Created by xbarna02
 //
 
 #ifndef IJC_SOLITER_CARDDECK_H

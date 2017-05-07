@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/martin/clion-2017.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
+RM = /home/martin/clion-2017.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/k/Documents/skola/IJC/IJC_Soliter
+CMAKE_SOURCE_DIR = /home/martin/CLionProjects/IJC_Soliter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug
+CMAKE_BINARY_DIR = /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/martin/clion-2017.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/martin/clion-2017.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/martin/CLionProjects/IJC_Soliter/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -251,6 +251,33 @@ CardStack.cpp.s:
 	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/CardStack.cpp.s
 	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/CardStack.cpp.s
 .PHONY : CardStack.cpp.s
+
+ConsoleView.o: ConsoleView.cpp.o
+
+.PHONY : ConsoleView.o
+
+# target to build an object file
+ConsoleView.cpp.o:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/ConsoleView.cpp.o
+.PHONY : ConsoleView.cpp.o
+
+ConsoleView.i: ConsoleView.cpp.i
+
+.PHONY : ConsoleView.i
+
+# target to preprocess a source file
+ConsoleView.cpp.i:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/ConsoleView.cpp.i
+.PHONY : ConsoleView.cpp.i
+
+ConsoleView.s: ConsoleView.cpp.s
+
+.PHONY : ConsoleView.s
+
+# target to generate assembly for a file
+ConsoleView.cpp.s:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/ConsoleView.cpp.s
+.PHONY : ConsoleView.cpp.s
 
 Controller.o: Controller.cpp.o
 
@@ -477,6 +504,9 @@ help:
 	@echo "... CardStack.o"
 	@echo "... CardStack.i"
 	@echo "... CardStack.s"
+	@echo "... ConsoleView.o"
+	@echo "... ConsoleView.i"
+	@echo "... ConsoleView.s"
 	@echo "... Controller.o"
 	@echo "... Controller.i"
 	@echo "... Controller.s"

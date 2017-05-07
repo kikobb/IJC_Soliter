@@ -1,5 +1,5 @@
 //
-// Created by k on 6.5.2017.
+// Created by xbarna02
 //
 
 #ifndef IJC_SOLITER_HELP_H

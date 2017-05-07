@@ -1,5 +1,5 @@
 //
-// Created by k on 7.5.2017.
+// Created by xbarna02
 //
 
 #ifndef IJC_SOLITER_CONSOLEVIEW_H
