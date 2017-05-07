@@ -5,11 +5,11 @@
 #ifndef IJC_SOLITER_CONTROLLER_H
 #define IJC_SOLITER_CONTROLLER_H
 
-#include "../game/Game.h"
+#include "Game.h"
 #include "string"
-#include "../view/ViewAbstractClass.h"
-#include "../game/History.h"
-#include "../game/Help.h"
+#include "ViewAbstractClass.h"
+#include "History.h"
+#include "Help.h"
 
 class Controller {
 public:

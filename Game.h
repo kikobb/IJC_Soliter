@@ -6,9 +6,9 @@
 #define IJC_SOLITER_GAME_H
 
 
-#include "../model/CardDeck.h"
-#include "../model/TargetStack.h"
-#include "../model/WorkingPack.h"
+#include "CardDeck.h"
+#include "TargetStack.h"
+#include "WorkingPack.h"
 
 //#include "Help.h"
 //#include "History.h"

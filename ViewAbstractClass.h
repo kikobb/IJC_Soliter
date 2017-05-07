@@ -5,8 +5,8 @@
 #ifndef IJC_SOLITER_VIEWABSTRACTCLASS_H
 #define IJC_SOLITER_VIEWABSTRACTCLASS_H
 
-#include "../model/WorkingPack.h"
-#include "../model/TargetStack.h"
+#include "WorkingPack.h"
+#include "TargetStack.h"
 
 class ViewAbstractClass {
 

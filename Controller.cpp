@@ -3,8 +3,8 @@
 //
 
 #include "Controller.h"
-#include "../game/History.h"
-#include "../view/ViewAbstractClass.h"
+#include "History.h"
+#include "ViewAbstractClass.h"
 
 Controller::Controller(Game *g, ViewAbstractClass* v) {game = g; view = v;}
 
