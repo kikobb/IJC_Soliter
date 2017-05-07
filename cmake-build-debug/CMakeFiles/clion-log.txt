@@ -1,4 +1,4 @@
-/home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/k/Documents/skola/IJC/test/IJC_Soliter
+/home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/k/Documents/skola/IJC/IJC_Soliter
 -- The C compiler identification is GNU 5.4.0
 -- The CXX compiler identification is GNU 5.4.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug
+-- Build files have been written to: /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug

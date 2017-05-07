@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Sol_model.dir/CardStack.cpp.o"
   "CMakeFiles/Sol_model.dir/WorkingPack.cpp.o"
   "CMakeFiles/Sol_model.dir/TargetStack.cpp.o"
-  "CMakeFiles/Sol_model.dir/main.cpp.o"
+  "CMakeFiles/Sol_model.dir/moj_main.cpp.o"
   "Sol_model.pdb"
   "Sol_model"
 )

@@ -48,10 +48,10 @@ RM = /home/k/dev-tools/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/k/Documents/skola/IJC/test/IJC_Soliter
+CMAKE_SOURCE_DIR = /home/k/Documents/skola/IJC/IJC_Soliter
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug
+CMAKE_BINARY_DIR = /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -420,41 +420,41 @@ WorkingPack.cpp.s:
 	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/WorkingPack.cpp.s
 .PHONY : WorkingPack.cpp.s
 
-main.o: main.cpp.o
+moj_main.o: moj_main.cpp.o
 
-.PHONY : main.o
+.PHONY : moj_main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/main.cpp.o
-	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/main.cpp.o
-	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/main.cpp.o
-	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/main.cpp.o
-.PHONY : main.cpp.o
+moj_main.cpp.o:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/moj_main.cpp.o
+	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/moj_main.cpp.o
+	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/moj_main.cpp.o
+	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/moj_main.cpp.o
+.PHONY : moj_main.cpp.o
 
-main.i: main.cpp.i
+moj_main.i: moj_main.cpp.i
 
-.PHONY : main.i
+.PHONY : moj_main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/main.cpp.i
-	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/main.cpp.i
-	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/main.cpp.i
-	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/main.cpp.i
-.PHONY : main.cpp.i
+moj_main.cpp.i:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/moj_main.cpp.i
+	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/moj_main.cpp.i
+	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/moj_main.cpp.i
+	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/moj_main.cpp.i
+.PHONY : moj_main.cpp.i
 
-main.s: main.cpp.s
+moj_main.s: moj_main.cpp.s
 
-.PHONY : main.s
+.PHONY : moj_main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/main.cpp.s
-	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/main.cpp.s
-	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/main.cpp.s
-	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/main.cpp.s
-.PHONY : main.cpp.s
+moj_main.cpp.s:
+	$(MAKE) -f CMakeFiles/Sol_game.dir/build.make CMakeFiles/Sol_game.dir/moj_main.cpp.s
+	$(MAKE) -f CMakeFiles/Sol_controll.dir/build.make CMakeFiles/Sol_controll.dir/moj_main.cpp.s
+	$(MAKE) -f CMakeFiles/Sol_main.dir/build.make CMakeFiles/Sol_main.dir/moj_main.cpp.s
+	$(MAKE) -f CMakeFiles/Sol_model.dir/build.make CMakeFiles/Sol_model.dir/moj_main.cpp.s
+.PHONY : moj_main.cpp.s
 
 # Help Target
 help:
@@ -495,9 +495,9 @@ help:
 	@echo "... WorkingPack.o"
 	@echo "... WorkingPack.i"
 	@echo "... WorkingPack.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... moj_main.o"
+	@echo "... moj_main.i"
+	@echo "... moj_main.s"
 .PHONY : help
 
 

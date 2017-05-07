@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Sol_main.dir/main.cpp.o"
+  "CMakeFiles/Sol_main.dir/moj_main.cpp.o"
   "Sol_main.pdb"
   "Sol_main"
 )

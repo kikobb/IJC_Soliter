@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/k/Documents/skola/IJC/test/IJC_Soliter/Controller.cpp" "/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/Controller.cpp.o"
-  "/home/k/Documents/skola/IJC/test/IJC_Soliter/main.cpp" "/home/k/Documents/skola/IJC/test/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/main.cpp.o"
+  "/home/k/Documents/skola/IJC/IJC_Soliter/Controller.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/Controller.cpp.o"
+  "/home/k/Documents/skola/IJC/IJC_Soliter/moj_main.cpp" "/home/k/Documents/skola/IJC/IJC_Soliter/cmake-build-debug/CMakeFiles/Sol_controll.dir/moj_main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

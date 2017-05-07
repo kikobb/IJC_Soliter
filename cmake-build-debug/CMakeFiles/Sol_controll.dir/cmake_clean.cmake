@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Sol_controll.dir/Controller.cpp.o"
-  "CMakeFiles/Sol_controll.dir/main.cpp.o"
+  "CMakeFiles/Sol_controll.dir/moj_main.cpp.o"
   "Sol_controll.pdb"
   "Sol_controll"
 )
