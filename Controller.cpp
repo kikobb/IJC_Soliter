@@ -80,7 +80,7 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
     if (src == workingPackT && dest == targetStackT){
         //uspesne presunutie (iba jedna karta (ta co je navrchu) a je to validne)
         //todo skontroluj overload
-        if (game->getWorkingPack(srcIndex)->get() == payloadHead &&
+        if ((payloadHead == nullptr || game->getWorkingPack(srcIndex)->get() == payloadHead) &&
             game->getTargetStack(destIndex)->put(game->getWorkingPack(srcIndex)->get())){
             game->getWorkingPack(srcIndex)->pop();
             view->refresh(game->getTargetStack(destIndex), destIndex);
