@@ -34,6 +34,7 @@ public:
     void moove(boardElements src, int srcIndex, boardElements dest,
                int destIndex, Card *payloadHead = nullptr);
     void help();
+    void initGame();
     bool save(std::string);
     void load(std::string);
 

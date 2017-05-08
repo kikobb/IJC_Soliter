@@ -32,7 +32,7 @@ void Game::fillWorkingPacks(CardDeck *deck) {
 
     for (int i = 0; i < 7; ++i) {
         tmpStack->flush();
-        for (int j = 0; j < i; ++j) {
+        for (int j = 0; j <= i; ++j) {
             tmpStack->put(deck->pop());
         }
         workingPacks[i] = new WorkingPack(tmpStack);

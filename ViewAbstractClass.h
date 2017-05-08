@@ -20,7 +20,8 @@ public:
     virtual void refresh(TargetStack *, int)=0;
     virtual void refresh(CardDeck *)=0;
     virtual void refresh()=0;
-    //virtual void highlight(helpData)=0;
+    virtual void initClosure()=0;
+    virtual void print()=0;
 };
 
 

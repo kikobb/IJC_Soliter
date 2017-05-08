@@ -23,12 +23,16 @@ public:
     void refresh(TargetStack *, int);
     void refresh(CardDeck *);
     void refresh();
+    void initClosure();
+    void print();
 
 private:
     std::vector<std::string> board;
     bool deckFull;
+    bool init;
 
-    void print();
+   // void print();
+
 };
 
 

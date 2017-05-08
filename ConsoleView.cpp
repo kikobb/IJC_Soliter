@@ -13,7 +13,7 @@ using namespace std;
 
 ConsoleView::ConsoleView() {
     board.push_back(" -----------------------------------------------------------------------");
-    board.push_back("|                          |  Target  |  Target  |  Target  |  Target  ||");
+    board.push_back("|                          | Target_1 | Target_2 | Target_3 | Target_4 ||");
     board.push_back("|  Deck      SwapDeck      |  CLUBS   | DIAMONDS |  HEARTS  |  SPADES  ||");
     board.push_back("|  FULL        K(S)        |  ------    --------    ------     ------  ||");
     board.push_back("|                          |   K(S)   |   K(S)   |   K(S)   |   K(S)   ||");
@@ -37,27 +37,31 @@ ConsoleView::ConsoleView() {
     board.push_back(" -----------------------------------------------------------------------");
 
     deckFull = true;
+    init = false;
 
 }
 
 void ConsoleView::refresh() {
     if (deckFull) {
         deckFull = false;
-        board[3].replace(3, 4, "NULL");
+        board[3].replace(3, 4, "FULL");
     }
     else {
         deckFull = true;
-        board[3].replace(3, 4, "FULL");
+        board[3].replace(3, 4, "NULL");
     }
-    print();
+    if(!init)
+        print();
 }
 
 void ConsoleView::refresh(CardDeck * swap) {
     if (swap->size() == 0)
         board[3].replace(15, 4, "NULL");
     else
-        board[3].replace(15, 4, swap->get()->toString());
-    print();
+        board[3].replace(15, swap->get()->toString().size(), swap->get()->toString());
+
+    if(!init)
+        print();
 }
 
 void ConsoleView::refresh(WorkingPack * wp, int i) {
@@ -66,19 +70,23 @@ void ConsoleView::refresh(WorkingPack * wp, int i) {
 
     for (int j = 0; j < wp->size(); ++j) {
         if(wp->get(j)->isTurnedFaceUp())
-            cerr << wp->get(j)->toString() <<endl;
-            board[8 + boardCounter++].replace((unsigned)4+(i*10), 4, wp->get(j)->toString());
+            board[8 + boardCounter++].replace((unsigned)4+(i*10), wp->get(j)->toString().size(), wp->get(j)->toString());
     }
     for (int j = boardCounter; j < 13 ; ++j) {
-        board[8 + j].replace((unsigned)4+(i*10), 4, "    ");
+        board[8 + j].replace((unsigned)4+(i*10), 5, "     ");
     }
 
-    print();
+    if(!init)
+        print();
 }
 
 void ConsoleView::refresh(TargetStack *ts, int i) {
-    board[4].replace((unsigned)31+(i*11), 4, ts->get()->toString());
-    print();
+    if (ts->size() == 0)
+        board[4].replace((unsigned)31+(i*11), 5, "     ");
+    else
+        board[4].replace((unsigned)31+(i*11), ts->get()->toString().size(), ts->get()->toString());
+    if(!init)
+        print();
 }
 
 void ConsoleView::print() {
@@ -87,3 +95,5 @@ void ConsoleView::print() {
         cout << board[i] << endl;
     }
 }
+
+void ConsoleView::initClosure() { init = !init;}

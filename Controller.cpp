@@ -271,3 +271,18 @@ void Controller::timeTravel(histElement * travelCoord) {
     }
 
 }
+
+/** Initialize game view */
+void Controller::initGame() {
+    view->initClosure();
+    view->refresh();
+    view->refresh(game->getSwapStack());
+    for (int i = 0; i < 4; ++i) {
+        view->refresh(game->getTargetStack(i), i);
+    }
+    for (int i = 0; i < 7; ++i) {
+        view->refresh(game->getWorkingPack(i), i);
+    }
+    view->initClosure();
+    view->print();
+}

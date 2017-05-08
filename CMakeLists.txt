@@ -12,6 +12,7 @@ set(GAME_FILES Game.cpp Game.h
         WorkingPack.cpp WorkingPack.h
         TargetStack.cpp TargetStack.h
 
+        Controller.cpp Controller.h
         ConsoleView.cpp ConsoleView.h)
 
 set(MODEL_FILES Color.h

@@ -8,9 +8,22 @@
 
 #include <iostream>
 #include "ConsoleView.h"
+#include "Controller.h"
 
 int main(int argc, char *argv[]) {
-    //std::cout << "hello world !!!" <<std::endl;
+    if (argc > 1) {
+        fprintf(stderr, "Prilis vela agrumentov");
+        return -1;
+    }
+
+    if(argc == 1){
+        if (argv[1] == "--help"){
+            std::cout << "help" <<std::endl;
+        }
+    }
+
+
+
 
     ConsoleView *pom = new ConsoleView();
 
@@ -25,7 +38,13 @@ int main(int argc, char *argv[]) {
     WorkingPack *tmpWp = new WorkingPack(tmp);
     pom->refresh(tmpWp, 4);
     TargetStack *tmpTs = new TargetStack(SPADES);
+    pom->refresh(tmpTs, 2);
     tmpTs->put(new Card(1, SPADES));
     pom->refresh(tmpTs, 3);
+
+    Game *game = new Game;
+    ConsoleView *view = new ConsoleView;
+    Controller *controlGame = new Controller(game, (ViewAbstractClass *) view);
+    controlGame->initGame();
 
 }
