@@ -34,10 +34,15 @@ bool CardStack::put(CardStack * stack) {
  *
  * @param [in,out] card If non-null, the card to pop.
  *
- * @return Null if it fails, else the previous top-of-stack object.
+ * @return if Card == null pop top, else the previous top-of-stack object.
  */
 
 CardStack* CardStack::pop(Card *card) {
+    if (card == nullptr) {
+        CardStack *tmp = new CardStack();
+        tmp->put(this->pop());
+        return tmp;
+    }
     return takeFrom(card);
 }
 
@@ -60,7 +65,7 @@ CardStack* CardStack::takeFrom(Card *card) {
     int pos = -1;
     for (int i = 0; i < deckStack.size(); ++i) {
         if (deckStack[i]->value() == card->value() &&
-                deckStack[i]->color() == card->value()){
+                deckStack[i]->color() == card->color()){
             pos = i;
             break;
         }
@@ -75,7 +80,7 @@ CardStack* CardStack::takeFrom(Card *card) {
     /** Size of the temporary old */
     int tmpOldSize = this->size();
 
-    for (int i = this->size(); i < tmpOldSize; ++i) {
+    for (int i = this->size() - pos; i < tmpOldSize; ++i) {
         this->pop();
     }
 

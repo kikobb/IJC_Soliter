@@ -7,6 +7,9 @@
  */
 
 #include <cstdlib>
+#include <exception>
+#include <string>
+#include <locale>
 #include "Card.h"
 #include "Color.h"
 
@@ -22,6 +25,79 @@ Card::Card(int val, Color c){
     cardColor = c;
     faceDirection = false;
     highlight = false;
+}
+
+/**
+ * Alternative Constructor.
+ *
+ * @param input The value and Color to process.
+ */
+Card::Card(std::string *input){
+    int pomVal = 0;
+    Color pomColor;
+
+    if (input->size() != 4 || input->substr(1, 1) != "(" || input->substr(3, 1) != ")")
+        throw -1;
+
+    //val
+    if (atoi(input->substr(0, 1).c_str()) > 1 && atoi(input->substr(0, 1).c_str()) < 11)
+        pomVal = atoi(input->substr(0, 1).c_str());
+    else if (input->substr(0, 1) == "A" || input->substr(0, 1) == "a")
+            pomVal = 1;
+        else if (input->substr(0, 1) == "K" || input->substr(0, 1) == "k")
+                pomVal = 13;
+            else if (input->substr(0, 1) == "Q" || input->substr(0, 1) == "q")
+                    pomVal = 12;
+                else if (input->substr(0, 1) == "J" || input->substr(0, 1) == "j")
+                        pomVal = 11;
+                    else
+                        throw -1;
+
+    //color
+    if (input->substr(2, 1) == "C" || input->substr(0, 1) == "c")
+        pomColor = CLUBS;
+    else if (input->substr(2, 1) == "D" || input->substr(0, 1) == "d")
+            pomColor = DIAMONDS;
+        else if (input->substr(2, 1) == "H" || input->substr(0, 1) == "h")
+                pomColor = HEARTS;
+            else if (input->substr(2, 1) == "S" || input->substr(0, 1) == "s")
+                    pomColor = SPADES;
+                else
+                    throw -1;
+
+    cardValue = pomVal;
+    cardColor = pomColor;
+    faceDirection = false;
+    highlight = false;
+}
+
+/**
+ * Convert this object into a string representation.
+ *
+ * @return A std::string that represents this object.
+ */
+
+std::string Card::toString() {
+    /** The output */
+    std::string output;
+
+    switch (this->value()){
+        case 13: output.append("K"); break;
+        case 12: output.append("Q"); break;
+        case 11: output.append("J"); break;
+        case 1: output.append("A"); break;
+        default: output.append(std::to_string(this->value())); break;
+    }
+    output + " ";
+
+    switch (this->color()){
+        case SPADES: output.append("(S)"); break;
+        case CLUBS: output.append("(C)"); break;
+        case DIAMONDS: output.append("(D)"); break;
+        case HEARTS: output.append("(H)"); break;
+    }
+
+    return output;
 }
 
 /** Turn card face up. */
@@ -84,35 +160,6 @@ bool Card::isTurnedFaceUp() {return faceDirection;}
 bool Card::isHighlighted() { return highlight; }
 
 /**
- * Convert this object into a string representation.
- *
- * @return A std::string that represents this object.
- */
-
-std::string Card::toString() {
-    /** The output */
-    std::string output;
-
-    switch (this->value()){
-        case 13: output.append("K"); break;
-        case 12: output.append("Q"); break;
-        case 11: output.append("J"); break;
-        case 1: output.append("A"); break;
-        default: output.append(std::to_string(this->value())); break;
-    }
-    output + " ";
-
-    switch (this->color()){
-        case SPADES: output.append("(S)"); break;
-        case CLUBS: output.append("(C)"); break;
-        case DIAMONDS: output.append("(D)"); break;
-        case HEARTS: output.append("(H)"); break;
-    }
-
-    return output;
-}
-
-/**
  * Equality operator. Find out if this card is the same as card from param.
  *
  * @param [in,out] c If non-null, a Card to process.
@@ -120,8 +167,8 @@ std::string Card::toString() {
  * @return True if the parameters are considered equivalent.
  */
 
-bool Card::operator==(Card *c){
-    return (this->value() == c->value() && this->color() == c->color());
+bool Card::operator==(const Card *c){
+    return (this->value() == c->cardValue && this->color() == c->cardColor);
 }
 
 

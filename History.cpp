@@ -93,7 +93,7 @@ histElement* History::rollBack() {
  */
 
 histElement* History::rollForward() {
-    if (position == size())
+    if (position == size() -1)
         return nullptr;
     return getMove(++position);
 }

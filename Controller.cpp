@@ -7,6 +7,7 @@
  */
 
 #include "Controller.h"
+#include "Card.h"
 
 /**
  * Constructor.
@@ -38,7 +39,7 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
     if (src == pullStackT && dest == pullStackT){
         game->turnPullStack();
         view->refresh(game->getSwapStack());
-        if (game->isPullStackEmpty())
+        if (game->isPullStackEmpty() || game->getSwapStack()->isEmpty())
             view->refresh();
         mooveSuccesfull = true;
     }
@@ -79,10 +80,22 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
     //workingPack to targetStack
     if (src == workingPackT && dest == targetStackT){
         //uspesne presunutie (iba jedna karta (ta co je navrchu) a je to validne)
-        //todo skontroluj overload
-        if ((payloadHead == nullptr || game->getWorkingPack(srcIndex)->get() == payloadHead) &&
-            game->getTargetStack(destIndex)->put(game->getWorkingPack(srcIndex)->get())){
+        //kvoli moznosti null v payloadHead
+        bool test;
+        if (payloadHead == nullptr)
+            test = true;
+        else
+            test = *game->getWorkingPack(srcIndex)->get() == payloadHead;
+        if ((payloadHead == nullptr || test) &&
+                game->getTargetStack(destIndex)->put(game->getWorkingPack(srcIndex)->get())
+                ){
             game->getWorkingPack(srcIndex)->pop();
+            //flag pre historiu
+            //pozri vi to nebola posledna karta (tac o sa popla)
+            if (game->getWorkingPack(srcIndex)->size() != 0) {
+                lastTurnUp = !game->getWorkingPack(srcIndex)->get()->isTurnedFaceUp();
+                game->getWorkingPack(srcIndex)->get()->turnFaceUp();
+            }
             view->refresh(game->getTargetStack(destIndex), destIndex);
             mooveSuccesfull = true;
         }
@@ -93,15 +106,23 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
     if (src == workingPackT && dest == workingPackT){
         //uspesne presunutir
         //otocenia kary
-        if (game->getWorkingPack(destIndex)->put(game->getWorkingPack(srcIndex)->get(payloadHead))){
+        if (game->getWorkingPack(destIndex)->put(game->getWorkingPack(srcIndex)->get(payloadHead))) {
             game->getWorkingPack(srcIndex)->pop(payloadHead);
             //flag pre historiu
-            lastTurnUp = !game->getWorkingPack(srcIndex)->get()->isTurnedFaceUp();
-            game->getWorkingPack(srcIndex)->get()->turnFaceUp();
+            //pozri vi to nebola posledna karta (tac o sa popla)
+            if (game->getWorkingPack(srcIndex)->size() != 0) {
+                lastTurnUp = !game->getWorkingPack(srcIndex)->get()->isTurnedFaceUp();
+                game->getWorkingPack(srcIndex)->get()->turnFaceUp();
+            }
             view->refresh(game->getWorkingPack(destIndex), destIndex);
             mooveSuccesfull = true;
         }
         view->refresh(game->getWorkingPack(srcIndex), srcIndex);
+    }
+
+    if (src == gameBoard && dest == gameBoard){
+        view->refresh();
+        view->refresh();
     }
 
     //ulozenie historie
@@ -114,8 +135,10 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
 /** Roll back. */
 void Controller::rollBack() {
     histElement* move = game->getHistory()->rollBack();
-    if (move == nullptr)
+    if (move == nullptr) {
+        moove(gameBoard, 0, gameBoard, 0);
         return;
+    }
     timeTravel(move);
 
 }
@@ -123,8 +146,10 @@ void Controller::rollBack() {
 /** Roll forward. */
 void Controller::rollForward() {
     histElement* move = game->getHistory()->rollForward();
-    if (move == nullptr)
+    if (move == nullptr){
+        moove(gameBoard, 0, gameBoard, 0);
         return;
+    }
     timeTravel(move);
 }
 
@@ -286,3 +311,5 @@ void Controller::initGame() {
     view->initClosure();
     view->print();
 }
+
+

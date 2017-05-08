@@ -26,6 +26,7 @@ public:
      */
 
     Card(int val, Color c); //konstruktor
+    Card(std::string *);//alternativny konstruktor
     Color color();
     int value();
     void turnFaceUp();
@@ -36,7 +37,7 @@ public:
     bool isHighlighted();
     int compareValue(Card c);
     //overload
-    bool operator==(Card *c);
+    bool operator==(const Card *c);
 
     std::string toString();
 

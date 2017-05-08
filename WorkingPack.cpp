@@ -32,7 +32,7 @@ bool WorkingPack::put(Card *card) {
     //podmienka na prazdny stack berie len krala (13)
     if (this->isEmpty()){
         if (card->value() == 13){
-            this->put(card);
+            deckStack.push_back(card);
             return true;
         }
         else
@@ -41,7 +41,7 @@ bool WorkingPack::put(Card *card) {
     else
     if ((card->value() - this->get()->value()) == -1) {
         if (!ARE_SIMILAR(this->get()->color(), card->color())) {
-            this->put(card);
+            deckStack.push_back(card);
             return true;
         } else
             return false;
@@ -69,8 +69,8 @@ bool WorkingPack::put(CardStack * stack) {
             return true;
         } else
             return false;
-    } else if ((stack->get()->value() - this->get()->value()) == -1){
-        if (!ARE_SIMILAR(stack->get()->color(), this->get()->color())){
+    } else if ((stack->get(0)->value() - this->get()->value()) == -1){
+        if (!ARE_SIMILAR(stack->get(0)->color(), this->get()->color())){
             for (int i = 0; i < stack->size(); ++i) {
                 this->put(stack->get(i));
             }
@@ -86,10 +86,17 @@ bool WorkingPack::put(CardStack * stack) {
  *
  * @param [in,out] card If non-null, the card to get.
  *
- * @return Null if it fails, else a pointer to a CardStack.
+ * @return CardStack with top Card (as only content), else a pointer to a CardStack.
  */
 
-CardStack* WorkingPack::get(Card * card) { return takeFrom(card);}
+CardStack* WorkingPack::get(Card * card) {
+    if (card == nullptr) {
+       CardStack *tmp = new CardStack();
+        tmp->put(this->get());
+        return tmp;
+    }
+    return takeFrom(card);
+}
 
 /**
  * Force put one card
@@ -134,7 +141,7 @@ CardStack* WorkingPack::takeFrom(Card * card) {
     int pos = -1;
     for (int i = 0; i < this->size(); ++i) {
         if (this->get(i)->value() == card->value() &&
-            this->get(i)->color() == card->value()){
+            this->get(i)->color() == card->color()){
             pos = i;
             break;
         }

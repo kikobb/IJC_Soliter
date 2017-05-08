@@ -31,6 +31,8 @@ private:
     bool deckFull;
     bool init;
 
+
+
    // void print();
 
 };

@@ -19,7 +19,7 @@ CardDeck * CardDeck::createStandardDeck() {
     CardDeck *retDeck = new CardDeck;
     std::vector<Card *> pom;
     for (int i = GET_FIRST; i <= GET_LAST; ++i) {
-        for (int j = 0; j < 14; ++j) {
+        for (int j = 1; j < 14; ++j) {
             pom.push_back(new Card(j, (Color)i));
         }
     }

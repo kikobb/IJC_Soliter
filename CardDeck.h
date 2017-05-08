@@ -20,7 +20,7 @@ public:
     static CardDeck * createStandardDeck();
     int size();
     void put(Card *);
-    Card* pop();
+    virtual Card* pop();
     Card* get();
     Card* get(int);
     bool isEmpty();
