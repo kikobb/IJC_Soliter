@@ -21,6 +21,7 @@ public:
     using CardStack::get;
     void forcePut(Card *);
     void forcePut(CardStack *);
+    int countHidden();
 
 private:
     CardStack* takeFrom(Card *);

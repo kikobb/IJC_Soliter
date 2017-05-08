@@ -94,19 +94,19 @@ std::string Card::toString() {
     std::string output;
 
     switch (this->value()){
-        case 13: output + "K"; break;
-        case 12: output + "Q"; break;
-        case 11: output + "J"; break;
-        case 1: output + "A"; break;
-        default: output + (char)('0' + this->value()); break;
+        case 13: output.append("K"); break;
+        case 12: output.append("Q"); break;
+        case 11: output.append("J"); break;
+        case 1: output.append("A"); break;
+        default: output.append(std::to_string(this->value())); break;
     }
     output + " ";
 
     switch (this->color()){
-        case SPADES: output + "(S)"; break;
-        case CLUBS: output + "(C)"; break;
-        case DIAMONDS: output + "(D)"; break;
-        case HEARTS: output + "(H)"; break;
+        case SPADES: output.append("(S)"); break;
+        case CLUBS: output.append("(C)"); break;
+        case DIAMONDS: output.append("(D)"); break;
+        case HEARTS: output.append("(H)"); break;
     }
 
     return output;

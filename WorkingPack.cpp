@@ -2,7 +2,7 @@
  * @file WorkingPack.cpp.
  *
  * @author xuhlia03
- * 		   
+ *
  * Implements the working pack class.
  */
 
@@ -111,6 +111,15 @@ void WorkingPack::forcePut(CardStack *stack) {
     for (int i = 0; i < stack->size(); ++i) {
         deckStack.push_back(stack->get(i));
     }
+}
+
+int WorkingPack::countHidden() {
+    int output = 0;
+    for (int i = 0; i < size(); ++i) {
+        if (!this->get(i)->isTurnedFaceUp())
+            output++;
+    }
+    return output;
 }
 
 /**

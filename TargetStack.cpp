@@ -29,7 +29,7 @@ bool TargetStack::put(Card *card) {
     if (this->isEmpty()){
         if (card->color() == packColor) {
             if (card->value() == 1) {
-                this->put(card);
+                deckStack.push_back(card);
                 return true;
             }
         }
