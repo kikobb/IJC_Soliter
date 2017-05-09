@@ -46,12 +46,14 @@ private:
 public:
     int achvdHeplNmbr;
     Game(); //konstruktor
+    Game(CardDeck *pull, CardDeck *swap, TargetStack *targetStacks[4], WorkingPack *workingPacks[7]);
     bool turnPullStack();
     bool reverseTurnPullStack();
     //getters
     WorkingPack* getWorkingPack(int);
     TargetStack* getTargetStack(int);
     CardDeck* getSwapStack();
+    CardDeck* getPullStack();
     bool isPullStackEmpty();
     History* getHistory();
 

@@ -11,7 +11,6 @@
 #include "ConsoleView.h"
 
 void terminateGame();
-void saveGame();
 void loadGame();
 void newGame();
 
@@ -26,7 +25,7 @@ ConsoleView::ConsoleView() {
     board.push_back("|                          |   K(S)   |   K(S)   |   K(S)   |   K(S)   ||");
     board.push_back("| --------------------------------------------------------------------- |");
     board.push_back("|| Stack_1 | Stack_2 | Stack_3 | Stack_4 | Stack_5 | Stack_6 | Stack_7 ||");
-    board.push_back("|| hid.: 2 | hid.: 3 | hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 ||");
+    board.push_back("|| hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 | hid.: 0 ||");
     board.push_back("||  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   ||");
     board.push_back("||  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   ||");
     board.push_back("||  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   |  K(S)   ||");
@@ -62,28 +61,50 @@ void ConsoleView::refresh() {
 }
 
 void ConsoleView::refresh(CardDeck * swap) {
-    if (swap->size() == 0)
+    if (swap->isEmpty())
         board[3].replace(15, 5, "NULL ");
-    else
+    else {
         if (swap->get()->toString().size() == 4)
             board[3].replace(15, 5, swap->get()->toString() + " ");
         else
             board[3].replace(15, swap->get()->toString().size(), swap->get()->toString());
 
+        if (swap->get()->isHighlighted())
+            board[3].replace(14, 1, ">");
+        else
+            board[3].replace(14, 1, " ");
+    }
     if(!init)
         print();
 }
 
-void ConsoleView::refresh(WorkingPack * wp, int i) {
+void ConsoleView::refresh(WorkingPack * wp, int i, int helpFlag) {
     int boardCounter = 0;
     board[7].replace((unsigned)9+(i*10), 1, to_string(wp->countHidden()));
 
+    //kripad helpu kral sa presunie
+    if (wp->isEmpty() && helpFlag != 0)
+        if (helpFlag == 1)
+            board[8 + boardCounter].replace((unsigned) 3 + (i * 10), 1, ">");
+        else
+            board[8 + boardCounter].replace((unsigned) 3 + (i * 10), 1, " ");
+
+    //prejde vsetky wp (ak null wp->size == 0)
     for (int j = 0; j < wp->size(); ++j) {
-        if(wp->get(j)->isTurnedFaceUp())
-            if (wp->get()->toString().size() == 4)
-                board[8 + boardCounter++].replace((unsigned)4+(i*10), 5, wp->get(j)->toString() + " ");
+        if(wp->get(j)->isTurnedFaceUp()) {
+            //help
+            if (wp->get(j)->isHighlighted())
+                board[8 + boardCounter].replace((unsigned) 3 + (i * 10), 1, ">");
             else
-                board[8 + boardCounter++].replace((unsigned)4+(i*10), wp->get(j)->toString().size(), wp->get(j)->toString());
+                board[8 + boardCounter].replace((unsigned) 3 + (i * 10), 1, " ");
+
+            //prekreslenie karty
+            if (wp->get()->toString().size() == 4)
+                board[8 + boardCounter++].replace((unsigned) 4 + (i * 10), 5, wp->get(j)->toString() + " ");
+            else
+                board[8 + boardCounter++].replace((unsigned) 4 + (i * 10), wp->get(j)->toString().size(),
+                                                  wp->get(j)->toString());
+        }
     }
     for (int j = boardCounter; j < 13 ; ++j) {
         board[8 + j].replace((unsigned)4+(i*10), 5, "     ");
@@ -94,13 +115,20 @@ void ConsoleView::refresh(WorkingPack * wp, int i) {
 }
 
 void ConsoleView::refresh(TargetStack *ts, int i) {
-    if (ts->size() == 0)
+    if (ts->isEmpty())
         board[4].replace((unsigned)31+(i*11), 5, "     ");
-    else
-    if (ts->get()->toString().size() == 4)
-        board[4].replace((unsigned)31+(i*11), 5, ts->get()->toString() + " ");
-    else
-        board[4].replace((unsigned)31+(i*11), ts->get()->toString().size(), ts->get()->toString());
+    else {
+        if (ts->get()->toString().size() == 4)
+            board[4].replace((unsigned) 31 + (i * 11), 5, ts->get()->toString() + " ");
+        else
+            board[4].replace((unsigned) 31 + (i * 11), ts->get()->toString().size(), ts->get()->toString());
+
+        if (ts->get()->isHighlighted())
+            board[4].replace((unsigned) 30 + (i * 11), 1, ">");
+        else
+            board[4].replace((unsigned) 30 + (i * 11), 1, " ");
+    }
+
     if(!init)
         print();
 }
@@ -147,6 +175,30 @@ void ConsoleView::gameWon() {
 
 void ConsoleView::setGameController(ControllerAbstractClass * c) { controller = c;}
 
+Game* ConsoleView::playGame() {
+    bool jedeme = true;
+    Game *newGame = nullptr;
+    std::string command, from, to, card;
+    while (jedeme){
+        command = "";
+        from = "";
+        to = "";
+        card = "";
+        getline(std::cin, command);
+        from = command.substr(0, command.find(" ", 0));
+        if (command.size() > from.size() + 1)
+            to = command.substr(from.size() + 1, command.find(" ", from.size() + 1) - (from.size() + 1));
+        if (command.size() >  from.size() + to.size() + 2)
+            card = command.substr(from.size() + to.size() + 2, command.find(" ", from.size() + to.size() + 2) - (from.size() + to.size() + 2));
+
+        if(!translateCommand(from, to, card)) {
+            badCommand();
+            SLEEP(800);
+            controller->move(gameBoard, 0, gameBoard, 0);
+        }
+    }
+}
+
 bool ConsoleView::translateCommand(std::string from, std::string to, std::string strngCard) {
     if (from.size() == 0) {
         controller->move(gameBoard, 0, gameBoard, 0);
@@ -159,18 +211,24 @@ bool ConsoleView::translateCommand(std::string from, std::string to, std::string
     if (strngCard.size() != 0)
         pomFilledArgs++;
 
+    if (from == "help" || from == "h") {
+        controller->help();
+        return true;
+    }
+
     if (from == "exit") {
-//        terminateGame();
+       // terminateGame();
     }
+
     if (from == "save") {
-        if (to == "exit") {
-//            saveGame();
-//            terminateGame();
+        saveGame(to);
+        if (strngCard == "exit") {
+            //terminateGame();
         }
-//    saveGame();
+        return  true;
     }
-    if (from == "load") {
-//        loadGame();
+    if (from == "load" && pomFilledArgs == 2) {
+        return loadGame(to);
     }
     if (from == "new" || (from == "new" && to == "game")) {
 //        newGame();
@@ -273,6 +331,7 @@ bool ConsoleView::translateCommand(std::string from, std::string to, std::string
     }
 }
 
+//private
 void ConsoleView::badCommand(){
     std::cout<< "zli command" << endl;
 }
@@ -281,29 +340,33 @@ void ConsoleView::badMoove(){
     std::cout<< "Neplatny tah" << endl;
 }
 
-void ConsoleView::playGame() {
-    bool jedeme = true;
-    std::string command, from, to, card;
-    while (jedeme){
-        command = "";
-        from = "";
-        to = "";
-        card = "";
-        getline(std::cin, command);
-        from = command.substr(0, command.find(" ", 0));
-        if (command.size() > from.size() + 1)
-            to = command.substr(from.size() + 1, command.find(" ", from.size() + 1) - (from.size() + 1));
-        if (command.size() >  from.size() + to.size() + 2)
-            card = command.substr(from.size() + to.size() + 2, command.find(" ", from.size() + to.size() + 2) - (from.size() + to.size() + 2));
-
-        if(!translateCommand(from, to, card)) {
-            badCommand();
-            SLEEP(800);
-            controller->move(gameBoard, 0, gameBoard, 0);
-        }
+void ConsoleView::saveGame(std::string name) {
+    if(!controller->save(name)){
+        std::cout << "Game was not saved !!!! Press any key . . . ." << std::endl;
+        getchar();
+        refresh();
+        refresh();
+        return;
+    } else{
+        std::cout << "Game was saved Press any key. . . ." << std::endl;
+        getchar();
+        refresh();
+        refresh();
+        return;
     }
 }
 
+bool ConsoleView::loadGame(std::string meno) {
+    if(!controller->load(meno)){
+        std::cout << "Game not found !!!! Press any key . . . ." << std::endl;
+        getchar();
+        refresh();
+        refresh();
+        return false;
+    }
+    return true;
+
+}
 
 
 

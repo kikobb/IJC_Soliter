@@ -36,7 +36,7 @@ class ConsoleView: ViewAbstractClass {
 public:
     ConsoleView();
     void setGameController(ControllerAbstractClass *);
-    void refresh(WorkingPack *, int);
+    void refresh(WorkingPack *, int, int helpFlag = 0);
     void refresh(TargetStack *, int);
     void refresh(CardDeck *);
     void refresh();
@@ -44,16 +44,23 @@ public:
     void print();
     void gameWon();
 
-    void playGame();
-    bool translateCommand(std::string from, std::string to, std::string strngCard);
-    void badCommand();
-    void badMoove();
-
+    //nie v abstrakte
+    Game* playGame();
     ControllerAbstractClass *controller;
+
 private:
     std::vector<std::string> board;
     bool deckFull;
     bool init;
+
+
+    bool translateCommand(std::string from, std::string to, std::string strngCard);
+    void badCommand();
+    void badMoove();
+    void saveGame(std::string);
+
+    bool loadGame(std::string);
+
 
 
 

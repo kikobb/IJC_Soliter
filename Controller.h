@@ -16,17 +16,6 @@
 
 #endif
 
-#ifdef LINUX
-#include <unistd.h>
-#define SLEEP(t) usleep(t * 1000);
-#elif WINDOWS
-#include <windows.h>
-#define SLEEP(t) Sleep(t);
-#else
-#include <unistd.h>
-#define SLEEP(t) usleep(t * 1000);
-#endif
-
 #include "ViewAbstractClass.h"
 #include "Game.h"
 #include <string>
@@ -44,7 +33,8 @@ public:
     void help();
     void initGame();
     bool save(std::string);
-    void load(std::string);
+
+    bool load(std::string);
 
 private:
     Game *game;

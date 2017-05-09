@@ -31,10 +31,11 @@ public:
     void resetHelp();
 
 private:
-    void fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c = nullptr);
     helpData res;
     int achvdPssbHlp = 0;
     Game *game;
+
+    void fill(helpData &r, boardElements l1, int i1, boardElements l2, int i2, Card* c = nullptr);
 };
 
 

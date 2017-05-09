@@ -21,6 +21,18 @@ Game::Game() {
     achvdHeplNmbr = 0;
 }
 
+Game::Game(CardDeck *pull, CardDeck *swap, TargetStack *target[4], WorkingPack *working[7]) {
+    pullStack = pull;
+    swapStack = swap;
+    for (int i = 0; i < 4; ++i) {
+        targetStacks[i] = target[i];
+    }
+    for (int i = 0; i < 7; ++i) {
+        workingPacks[i] = working[i];
+    }
+}
+
+
 /**
  * Fill working packs.
  *
@@ -118,6 +130,8 @@ TargetStack* Game::getTargetStack(int i) { return targetStacks[i];}
  */
 
 CardDeck* Game::getSwapStack() { return swapStack;}
+
+CardDeck* Game::getPullStack() { return pullStack;}
 
 /**
  * Gets the history.

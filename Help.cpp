@@ -25,61 +25,84 @@ Help::Help(Game *g) {game = g;}
 helpData* Help::help() {
     int possibHelpNmbr = 0;
     //prehladanie moznosti s kartou na swapStack
-    //targetStack
-    for (int i = 0; i < 4; i++){
-        if (game->getTargetStack(i)->put(game->getSwapStack()->get())){
-            game->getTargetStack(i)->pop();
-            if (possibHelpNmbr++ == achvdPssbHlp){
-                achvdPssbHlp++;
-                fill(res ,swapStackT, 0, targetStackT, i);
-                return &res;
-            }
-        }
-    }
-    //workingPack
-    for (int i = 0; i < 7; i++){
-        if (game->getWorkingPack(i)->put(game->getSwapStack()->get())) {
-            game->getWorkingPack(i)->pop();
-            if (possibHelpNmbr++ == achvdPssbHlp){
-                achvdPssbHlp++;
-                fill(res ,swapStackT, 0, workingPackT, i);
-                return &res;
-            }
-        }
-    }
-    //prehladanie moznosti pre karty na workingPacku
-    //targetStack
-    for (int i = 0; i < 7; i++){
-        for (int j = 0; j < 4; j++){
-            if (game->getTargetStack(j)->put(game->getWorkingPack(j)->get())){
-                game->getTargetStack(j)->pop();
-                if (possibHelpNmbr++ == achvdPssbHlp) {
-                    achvdPssbHlp++;
-                    fill(res, workingPackT, i, targetStackT, j);
-                    return &res;
+    if (!game->getSwapStack()->isEmpty()) {
+        //targetStack
+        for (int i = 0; i < 4; i++) {
+            if (!game->getTargetStack(i)->isEmpty()) {
+                if (game->getTargetStack(i)->put(game->getSwapStack()->get())) {
+                    game->getTargetStack(i)->pop();
+                    if (possibHelpNmbr++ == achvdPssbHlp) {
+                        achvdPssbHlp++;
+                        fill(res, swapStackT, 0, targetStackT, i);
+                        return &res;
+                    }
                 }
             }
         }
-    }
-    //workingPack
-    for (int i = 0; i < 7; i++){
-        for (int j = 0; j < 7; j++){
-            if (i == j)
-                continue;
-            for (int k = game->getWorkingPack(i)->size() -1; k >= 0; ++k) {
-                if (game->getWorkingPack(j)->put(game->getWorkingPack(i)->get(k))){
-                    game->getWorkingPack(j)->pop();
+        //workingPack
+        for (int i = 0; i < 7; i++) {
+            if (!game->getTargetStack(i)->isEmpty()) {
+                if (game->getWorkingPack(i)->put(game->getSwapStack()->get())) {
+                    game->getWorkingPack(i)->pop();
                     if (possibHelpNmbr++ == achvdPssbHlp) {
                         achvdPssbHlp++;
-                        fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(i)->get(k));
+                        fill(res, swapStackT, 0, workingPackT, i);
                         return &res;
                     }
                 }
             }
         }
     }
-    resetHelp();
-    return nullptr;
+    //prehladanie moznosti pre karty na workingPacku
+    //targetStack
+    for (int i = 0; i < 7; i++){
+        if (!game->getWorkingPack(i)->isEmpty()) {
+            for (int j = 0; j < 4; j++) {
+                if(!game->getTargetStack(j)->isEmpty()) {
+                    if (game->getTargetStack(j)->put(game->getWorkingPack(j)->get())) {
+                        game->getTargetStack(j)->pop();
+                        if (possibHelpNmbr++ == achvdPssbHlp) {
+                            achvdPssbHlp++;
+                            fill(res, workingPackT, i, targetStackT, j);
+                            return &res;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //workingPack
+    for (int i = 0; i < 7; i++){
+        if (!game->getWorkingPack(i)->isEmpty()) {
+            for (int j = 0; j < 7; j++) {
+                if (i == j)
+                    continue;
+                if (!game->getWorkingPack(i)->isEmpty()) {
+                    for (int k = game->getWorkingPack(i)->size() - 1; k >= 0; --k) {
+                        if (game->getWorkingPack(i)->get(k)->isTurnedFaceUp() &&
+                                game->getWorkingPack(j)->put(game->getWorkingPack(i)->get(k))) {
+                            game->getWorkingPack(j)->pop();
+                            if (possibHelpNmbr++ == achvdPssbHlp) {
+                                //aby navrhoval presunutie krala na prazdne policko len ak kral nieco zakriva
+                                if(game->getWorkingPack(i)->get(k)->value() != 13 ||
+                                        game->getWorkingPack(i)->countHidden() != 0){
+                                    achvdPssbHlp++;
+                                    fill(res, workingPackT, i, workingPackT, j, game->getWorkingPack(i)->get(k));
+                                    return &res;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (possibHelpNmbr != 0) {
+        resetHelp();
+        return help();
+    }
+    else
+        return nullptr;
 }
 
 /** Resets the help. */

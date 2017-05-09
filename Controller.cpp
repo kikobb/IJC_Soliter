@@ -7,8 +7,11 @@
  */
 
 #include <iostream>
+#include <fstream>
+#include <sys/stat.h>
+#include <unistd.h>
 #include "Controller.h"
-#include "Card.h"
+
 
 
 /**
@@ -178,8 +181,15 @@ void Controller::rollForward() {
 void Controller::help() {
     helpData* result = game->helper();
 
-    if (result == nullptr)
+    if (result == nullptr) {
+        view->refresh();
+        view->refresh();
+        std::cout << "No possible move Press any key to continue . . .";
+        getchar();
+        view->refresh();
+        view->refresh();
         return;
+    }
 
     if (result->location_1 == swapStackT){
         if(result->location_2 == targetStackT){
@@ -190,13 +200,15 @@ void Controller::help() {
             view->refresh(game->getSwapStack());
             view->refresh(game->getTargetStack(result->index_2), result->index_2);
             //wait
-            SLEEP(2000);
+            std::cout << "Press any key to continue . . .";
+            getchar();
             //nastavenie highlightu OFF
             game->getSwapStack()->get()->turnOffCard();
             game->getTargetStack(result->index_2)->get()->turnOffCard();
             //prekreslenie vo view
             view->refresh(game->getSwapStack());
             view->refresh(game->getTargetStack(result->index_2), result->index_2);
+
         } else{
             //workingPack
             //nastavenie highlightu ON
@@ -206,7 +218,8 @@ void Controller::help() {
             view->refresh(game->getSwapStack());
             view->refresh(game->getWorkingPack(result->index_2), result->index_2);
             //wait
-            SLEEP(2000);
+            std::cout << "Press any key to continue . . .";
+            getchar();
             //nastavenie highlightu OFF
             game->getSwapStack()->get()->turnOffCard();
             game->getWorkingPack(result->index_2)->get()->turnOffCard();
@@ -224,7 +237,8 @@ void Controller::help() {
             view->refresh(game->getWorkingPack(result->index_1), result->index_1);
             view->refresh(game->getTargetStack(result->index_2), result->index_2);
             //wait
-            SLEEP(2000);
+            std::cout << "Press any key to continue . . .";
+            getchar();
             //nastavenie highlightu OFF
             game->getWorkingPack(result->index_1)->get()->turnOffCard();
             game->getTargetStack(result->index_2)->get()->turnOffCard();
@@ -232,26 +246,35 @@ void Controller::help() {
             view->refresh(game->getWorkingPack(result->index_1), result->index_1);
             view->refresh(game->getTargetStack(result->index_2), result->index_2);
         } else{
+            //pre pripad znazornenia presunu krala na prazdne policko
+            int helpFlag = 0;
             //pre workingPack
             //nastavenie highlightu ON
             CardStack* pomStack = game->getWorkingPack(result->index_1)->get(result->payloadHead);
             for (int i = 0; i < pomStack->size(); ++i) {
                 pomStack->get(i)->turnOnCard();
             }
-            game->getWorkingPack(result->index_2)->get()->turnOnCard();
+            if (!game->getWorkingPack(result->index_2)->isEmpty())
+                game->getWorkingPack(result->index_2)->get()->turnOnCard();
+            else
+                helpFlag = 1;
             //prekreslenie vo view
             view->refresh(game->getWorkingPack(result->index_1), result->index_1);
-            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2, helpFlag);
             //wait
-            SLEEP(2000);
+            std::cout << "Press any key to continue . . .";
+            getchar();
             //nastavenie highlightu OFF
             for (int i = 0; i < pomStack->size(); ++i) {
                 pomStack->get(i)->turnOffCard();
             }
-            game->getWorkingPack(result->index_2)->get()->turnOffCard();
+            if (!game->getWorkingPack(result->index_2)->isEmpty())
+                game->getWorkingPack(result->index_2)->get()->turnOffCard();
+            else
+                helpFlag = 2;
             //prekreslenie vo view
             view->refresh(game->getWorkingPack(result->index_1), result->index_1);
-            view->refresh(game->getWorkingPack(result->index_2), result->index_2);
+            view->refresh(game->getWorkingPack(result->index_2), result->index_2, helpFlag);
         }
 
     }
@@ -333,9 +356,187 @@ void Controller::initGame() {
     view->print();
 }
 
+/** Save game */
+bool Controller::save(std::string meno) {
+
+    if (meno.size() == 0)
+        return false;
+
+    std::ofstream file;
+    //pull
+    file.open(meno);
+    if (file.is_open()) {
+        file << "/*pull, swap, target, working*/" << std::endl;
+        for (int i = 0; i < game->getPullStack()->size(); ++i) {
+            Card *pom = game->getPullStack()->get(i);
+            int face = (pom->isTurnedFaceUp()) ? 1 : 0;
+            file << pom->value() << std::endl;
+            file << pom->color() << std::endl;
+            file << face << std::endl;
+            file << "-" << std::endl;
+        }
+
+        //swap
+        file << "/**/" << std::endl;
+        for (int i = 0; i < game->getSwapStack()->size(); ++i) {
+            Card *pom = game->getSwapStack()->get(i);
+            int face = (pom->isTurnedFaceUp()) ? 1 : 0;
+            file << pom->value() << std::endl;
+            file << pom->color() << std::endl;
+            file << face << std::endl;
+            file << "-" << std::endl;
+        }
+
+        //target
+
+        for (int i = 0; i < 4; ++i) {
+            file << "/**/" << std::endl;
+            for (int j = 0; j < game->getTargetStack(i)->size(); ++j) {
+                Card *pom = game->getTargetStack(i)->get(j);
+                int face = (pom->isTurnedFaceUp()) ? 1 : 0;
+                file << pom->value() << std::endl;
+                file << pom->color() << std::endl;
+                file << face << std::endl;
+                file << "-" << std::endl;
+            }
+        }
+
+        //working
+        for (int i = 0; i < 7; ++i) {
+            file << "/**/" << std::endl;
+            for (int j = 0; j < game->getWorkingPack(i)->size(); ++j) {
+                Card *pom = game->getWorkingPack(i)->get(j);
+                int face = (pom->isTurnedFaceUp()) ? 1 : 0;
+
+                file << pom->value() << std::endl;
+                file << pom->color() << std::endl;
+                file << face << std::endl;
+                file << "-" << std::endl;
+            }
+        }
+
+        file.close();
+
+        return true;
+    }
+    return false;
+
+
+}
+
+bool Controller::load(std::string meno) {
+
+    std::ifstream input(meno);
+    if (!input.is_open())
+        return false;
+
+    Game *output = new Game;
+    std::string line;
+    //preskoci 2 riadok
+    std::getline(input, line);
+    CardDeck *pullStack = new CardDeck;
+    while (std::getline(input, line)) {
+        if (line == "/**/")
+            break;
+
+        int val = std::stoi(line);
+
+        std::getline(input, line);
+        int color = (int)std::strtol(line.c_str(), nullptr, 10);
+
+        std::getline(input, line);
+        bool face = (bool)std::strtol(line.c_str(), nullptr, 10);
+
+        Card *pom = new Card(val, (Color) color);
+        if (face)
+            pom->turnFaceUp();
+        pullStack->put(pom);
+        //potreba
+        std::getline(input, line);
+    }
+
+    CardDeck *swapStack = new CardDeck;
+    while (std::getline(input, line)) {
+        if (line == "/**/")
+            break;
+
+        int val = std::stoi(line);
+
+        std::getline(input, line);
+        int color = (int)std::strtol(line.c_str(), nullptr, 10);
+
+        std::getline(input, line);
+        bool face = (bool)std::strtol(line.c_str(), nullptr, 10);
+
+        Card *pom = new Card(val, (Color) color);
+        if (face)
+            pom->turnFaceUp();
+        swapStack->put(pom);
+        //potreba
+        std::getline(input, line);
+    }
+
+
+
+    TargetStack *targetStacks[4];
+    for (int i = GET_FIRST; i <= GET_LAST ; ++i) {
+        targetStacks[i] = new TargetStack((Color)i);
+        while (std::getline(input, line)) {
+            if (line == "/**/")
+                break;
+
+            int val = std::stoi(line);
+
+            std::getline(input, line);
+            int color = (int)std::strtol(line.c_str(), nullptr, 10);
+
+            std::getline(input, line);
+            bool face = (bool)std::strtol(line.c_str(), nullptr, 10);
+
+            Card *pom = new Card(val, (Color) color);
+            if (face)
+                pom->turnFaceUp();
+            targetStacks[i]->put(pom);
+            //potreba
+            std::getline(input, line);
+        }
+    }
+    WorkingPack *workingPacks[7];
+    CardStack *tmpStack = new CardStack;
+    for (int j = 0; j < 7; ++j) {
+        while (std::getline(input, line)) {
+            if (line == "/**/")
+                break;
+
+            int val = std::stoi(line);
+
+            std::getline(input, line);
+            int color = (int)std::strtol(line.c_str(), nullptr, 10);
+
+            std::getline(input, line);
+            bool face = (bool)std::strtol(line.c_str(), nullptr, 10);
+
+            Card *pom = new Card(val, (Color) color);
+            if (face)
+                pom->turnFaceUp();
+            tmpStack->put(pom);
+            //potreba
+            std::getline(input, line);
+        }
+        workingPacks[j] = new WorkingPack(tmpStack);
+        tmpStack->flush();
+    }
+
+    game = new Game(pullStack, swapStack, targetStacks, workingPacks);
+    initGame();
+    return true;
+
+}
+
 void Controller::gameWon() {
     view->gameWon();
-    SLEEP(3000);
+    std::cout << "Press any key to continue . . .";
+    getchar();
     std::cout << CLRSCR;
     exit(0);
 }
@@ -351,5 +552,6 @@ void Controller::checkForEnd() {
     if (flag)
         gameWon();
 }
+
 
 

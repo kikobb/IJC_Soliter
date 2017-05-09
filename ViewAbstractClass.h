@@ -18,7 +18,7 @@ class ViewAbstractClass {
 
 public:
     virtual void setGameController(ControllerAbstractClass *)=0;
-    virtual void refresh(WorkingPack *, int)=0;
+    virtual void refresh(WorkingPack *, int, int helpflag = 0)=0;
     virtual void refresh(TargetStack *, int)=0;
     virtual void refresh(CardDeck *)=0;
     virtual void refresh()=0;
