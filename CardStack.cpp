@@ -80,7 +80,7 @@ CardStack* CardStack::takeFrom(Card *card) {
     /** Size of the temporary old */
     int tmpOldSize = this->size();
 
-    for (int i = this->size() - pos; i < tmpOldSize; ++i) {
+    for (int i = pos; i < tmpOldSize; ++i) {
         this->pop();
     }
 

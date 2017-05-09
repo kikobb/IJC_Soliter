@@ -9,14 +9,12 @@
 #include <iostream>
 #include <algorithm>
 #include "ConsoleView.h"
-#include "Controller.h"
 
-bool translateCommand(Controller *controlGame, std::string from, std::string to, std::string card);
 void terminateGame();
 void saveGame();
 void loadGame();
 void newGame();
-void badCommand();
+
 
 using namespace std;
 
@@ -82,7 +80,10 @@ void ConsoleView::refresh(WorkingPack * wp, int i) {
 
     for (int j = 0; j < wp->size(); ++j) {
         if(wp->get(j)->isTurnedFaceUp())
-            board[8 + boardCounter++].replace((unsigned)4+(i*10), wp->get(j)->toString().size(), wp->get(j)->toString());
+            if (wp->get()->toString().size() == 4)
+                board[8 + boardCounter++].replace((unsigned)4+(i*10), 5, wp->get(j)->toString() + " ");
+            else
+                board[8 + boardCounter++].replace((unsigned)4+(i*10), wp->get(j)->toString().size(), wp->get(j)->toString());
     }
     for (int j = boardCounter; j < 13 ; ++j) {
         board[8 + j].replace((unsigned)4+(i*10), 5, "     ");
@@ -95,6 +96,9 @@ void ConsoleView::refresh(WorkingPack * wp, int i) {
 void ConsoleView::refresh(TargetStack *ts, int i) {
     if (ts->size() == 0)
         board[4].replace((unsigned)31+(i*11), 5, "     ");
+    else
+    if (ts->get()->toString().size() == 4)
+        board[4].replace((unsigned)31+(i*11), 5, ts->get()->toString() + " ");
     else
         board[4].replace((unsigned)31+(i*11), ts->get()->toString().size(), ts->get()->toString());
     if(!init)
@@ -110,68 +114,42 @@ void ConsoleView::print() {
 
 void ConsoleView::initClosure() { init = !init;}
 
-int main(int argc, char *argv[]) {
-    if (argc > 1) {
-        fprintf(stderr, "Prilis vela agrumentov");
-        return -1;
-    }
+void ConsoleView::gameWon() {
+    std::vector<std::string> endGame;
 
-    if(argc == 1){
-        if (argv[1] == "--help"){
-            std::cout << "help" <<std::endl;
-        }
-    }
+    endGame.push_back(" -----------------------------------------------------------------------");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                         CONGRATULATION                                |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                            YOU WON                                    |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back("|                                                                       |");
+    endGame.push_back(" -----------------------------------------------------------------------");
 
-    Game *game = new Game;
-    ConsoleView *view = new ConsoleView;
-    Controller *controlGame = new Controller(game, (ViewAbstractClass *) view);
-    controlGame->initGame();
-
-    Card *tmp = new Card(13, HEARTS);
-    tmp->turnFaceUp();
-    game->getWorkingPack(0)->forcePut(tmp);
-    view->refresh(game->getWorkingPack(0), 0);
-    tmp = new Card(12, SPADES);
-    tmp->turnFaceUp();
-    game->getWorkingPack(0)->forcePut(tmp);
-    view->refresh(game->getWorkingPack(0), 0);
-    tmp = new Card(11, HEARTS);
-    tmp->turnFaceUp();
-    game->getWorkingPack(0)->forcePut(tmp);
-    view->refresh(game->getWorkingPack(0), 0);
-
-    tmp = new Card(13, HEARTS);
-    tmp->turnFaceUp();
-    game->getWorkingPack(1)->forcePut(tmp);
-    view->refresh(game->getWorkingPack(1), 1);
-
-
-    bool jedeme = true;
-    std::string command, from, to, card;
-    while (jedeme){
-        command = "";
-        from = "";
-        to = "";
-        card = "";
-        getline(std::cin, command);
-        from = command.substr(0, command.find(" ", 0));
-        if (command.size() > from.size() + 1)
-            to = command.substr(from.size() + 1, command.find(" ", from.size() + 1) - (from.size() + 1));
-        if (command.size() >  from.size() + to.size() + 2)
-            card = command.substr(from.size() + to.size() + 2, command.find(" ", from.size() + to.size() + 2) - (from.size() + to.size() + 2));
-
-        if(!translateCommand(controlGame, from, to, card)) {
-            badCommand();
-            SLEEP(2000);
-            controlGame->moove(gameBoard, 0, gameBoard, 0);
-        }
-
-    }
+    board = endGame;
+    print();
 }
 
-bool translateCommand(Controller *controlGame, std::string from, std::string to, std::string strngCard) {
+void ConsoleView::setGameController(ControllerAbstractClass * c) { controller = c;}
+
+bool ConsoleView::translateCommand(std::string from, std::string to, std::string strngCard) {
     if (from.size() == 0) {
-        controlGame->moove(gameBoard, 0, gameBoard, 0);
+        controller->move(gameBoard, 0, gameBoard, 0);
         return true;
     }
 
@@ -199,12 +177,12 @@ bool translateCommand(Controller *controlGame, std::string from, std::string to,
     }
 
     if (from == "back" || from == "rollback" || from == "b") {
-        controlGame->rollBack();
+        controller->rollBack();
         return true;
     }
 
     if (from == "forward" || from == "rollforward" || from == "next" || from == "n" || from == "f") {
-        controlGame->rollForward();
+        controller->rollForward();
         return true;
     }
 
@@ -216,7 +194,7 @@ bool translateCommand(Controller *controlGame, std::string from, std::string to,
     if(from == "deck" || from == "d"){
         src = pullStackT;
         srcIndex = 0;
-    //swap
+        //swap
     }else if (from == "swap" || from == "s") {
         src = swapStackT;
         srcIndex = 0;
@@ -226,7 +204,7 @@ bool translateCommand(Controller *controlGame, std::string from, std::string to,
             src = workingPackT;
             srcIndex = atoi(from.substr(from.size() - 1, 1).c_str()) -1;
         }
-    //targetStack
+        //targetStack
     } else if (from.substr(0, from.size() - 1) == "target" || from.substr(0, from.size() - 1) == "t") {
         if (atoi(from.substr(from.size() - 1, 1).c_str()) > 0 && atoi(from.substr(from.size() - 1, 1).c_str()) < 5) {
             src = targetStackT;
@@ -277,14 +255,57 @@ bool translateCommand(Controller *controlGame, std::string from, std::string to,
     }
 
     //volanie controllera
-    if (pomFilledArgs == 3)
-        controlGame->moove(src, srcIndex, dest, destIndex, card);
-    else
-        controlGame->moove(src, srcIndex, dest, destIndex);
-
-    return true;
+    if (pomFilledArgs == 3) {
+        if(!controller->move(src, srcIndex, dest, destIndex, card)) {
+            badMoove();
+            SLEEP(800);
+            controller->move(gameBoard, 0, gameBoard, 0);
+        }
+        return true;
+    }
+    else {
+        if(!controller->move(src, srcIndex, dest, destIndex)) {
+            badMoove();
+            SLEEP(800);
+            controller->move(gameBoard, 0, gameBoard, 0);
+        }
+        return true;
+    }
 }
 
-void badCommand(){
+void ConsoleView::badCommand(){
     std::cout<< "zli command" << endl;
 }
+
+void ConsoleView::badMoove(){
+    std::cout<< "Neplatny tah" << endl;
+}
+
+void ConsoleView::playGame() {
+    bool jedeme = true;
+    std::string command, from, to, card;
+    while (jedeme){
+        command = "";
+        from = "";
+        to = "";
+        card = "";
+        getline(std::cin, command);
+        from = command.substr(0, command.find(" ", 0));
+        if (command.size() > from.size() + 1)
+            to = command.substr(from.size() + 1, command.find(" ", from.size() + 1) - (from.size() + 1));
+        if (command.size() >  from.size() + to.size() + 2)
+            card = command.substr(from.size() + to.size() + 2, command.find(" ", from.size() + to.size() + 2) - (from.size() + to.size() + 2));
+
+        if(!translateCommand(from, to, card)) {
+            badCommand();
+            SLEEP(800);
+            controller->move(gameBoard, 0, gameBoard, 0);
+        }
+    }
+}
+
+
+
+
+void terminateGame(){}
+

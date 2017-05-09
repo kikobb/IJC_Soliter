@@ -36,34 +36,42 @@ Card::Card(std::string *input){
     int pomVal = 0;
     Color pomColor;
 
-    if (input->size() != 4 || input->substr(1, 1) != "(" || input->substr(3, 1) != ")")
-        throw -1;
+    unsigned ofs = 0;
 
+    //check na normalny format alebo s 2 miestnym cislom 10(s)
+    if (input->size() != 4 || input->substr(1, 1) != "(" || input->substr(3, 1) != ")")
+        if(input->size() == 5 && input->substr(2, 1) == "(" && input->substr(4, 1) == ")")
+            ofs = 1;
+        else
+            throw -1;
     //val
-    if (atoi(input->substr(0, 1).c_str()) > 1 && atoi(input->substr(0, 1).c_str()) < 11)
-        pomVal = atoi(input->substr(0, 1).c_str());
-    else if (input->substr(0, 1) == "A" || input->substr(0, 1) == "a")
+    if (atoi(input->substr(0, 1 + ofs).c_str()) > 1 && atoi(input->substr(0, 1 + ofs).c_str()) < 11)
+        pomVal = atoi(input->substr(0, 1+ ofs).c_str());
+    else if(ofs == 0) {
+        if (input->substr(0, 1) == "A" || input->substr(0, 1) == "a")
             pomVal = 1;
         else if (input->substr(0, 1) == "K" || input->substr(0, 1) == "k")
-                pomVal = 13;
-            else if (input->substr(0, 1) == "Q" || input->substr(0, 1) == "q")
-                    pomVal = 12;
-                else if (input->substr(0, 1) == "J" || input->substr(0, 1) == "j")
-                        pomVal = 11;
-                    else
-                        throw -1;
+            pomVal = 13;
+        else if (input->substr(0, 1) == "Q" || input->substr(0, 1) == "q")
+            pomVal = 12;
+        else if (input->substr(0, 1) == "J" || input->substr(0, 1) == "j")
+            pomVal = 11;
+        else
+            throw -1;
+    } else
+        throw -1;
 
     //color
-    if (input->substr(2, 1) == "C" || input->substr(0, 1) == "c")
+    if (input->substr(2 + ofs, 1) == "C" || input->substr(2 + ofs, 1) == "c")
         pomColor = CLUBS;
-    else if (input->substr(2, 1) == "D" || input->substr(0, 1) == "d")
-            pomColor = DIAMONDS;
-        else if (input->substr(2, 1) == "H" || input->substr(0, 1) == "h")
-                pomColor = HEARTS;
-            else if (input->substr(2, 1) == "S" || input->substr(0, 1) == "s")
-                    pomColor = SPADES;
-                else
-                    throw -1;
+    else if (input->substr(2 + ofs, 1) == "D" || input->substr(2 + ofs, 1) == "d")
+        pomColor = DIAMONDS;
+    else if (input->substr(2 + ofs, 1) == "H" || input->substr(2 + ofs, 1) == "h")
+        pomColor = HEARTS;
+    else if (input->substr(2 + ofs, 1) == "S" || input->substr(2 + ofs, 1) == "s")
+        pomColor = SPADES;
+    else
+        throw -1;
 
     cardValue = pomVal;
     cardColor = pomColor;

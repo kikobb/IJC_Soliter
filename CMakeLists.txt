@@ -32,6 +32,6 @@ set(CONTROLL_FILES Controller.cpp Controller.h
 
 add_executable(Sol_model ${MODEL_FILES} moj_main.cpp)
 add_executable(Sol_main moj_main.cpp)
-add_executable(Sol_game ${GAME_FILES} moj_main.cpp)
+add_executable(Sol_game ${GAME_FILES} moj_main.cpp ViewAbstractClass.h)
 add_executable(Sol_controll ${CONTROLL_FILES} moj_main.cpp)
 #add_executable(Sol_view ${VIEW_FILES})

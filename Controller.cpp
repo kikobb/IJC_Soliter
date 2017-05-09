@@ -6,8 +6,10 @@
  * Implements the controller class.
  */
 
+#include <iostream>
 #include "Controller.h"
 #include "Card.h"
+
 
 /**
  * Constructor.
@@ -28,8 +30,8 @@ Controller::Controller(Game *g, ViewAbstractClass* v) {game = g; view = v;}
  * @param [in,out] payloadHead If non-null, the payload head.
  */
 
-void Controller::moove(boardElements src, int srcIndex, boardElements dest,
-                       int destIndex, Card *payloadHead) {
+bool Controller::move(boardElements src, int srcIndex, boardElements dest,
+                      int destIndex, Card *payloadHead, bool histBlock) {
 
     //flag pre historiu
     bool lastTurnUp = false;
@@ -46,6 +48,8 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
 
     // swap to tergetStack
     if (src == swapStackT && dest == targetStackT){
+        if (game->getSwapStack()->isEmpty())
+            return false;
         //ak sa to uspesne presunie
         if (game->getTargetStack(destIndex)->put(game->getSwapStack()->get())){
             game->getSwapStack()->pop();
@@ -53,10 +57,15 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
             mooveSuccesfull = true;
         }
         view->refresh(game->getSwapStack());
+
+        if (mooveSuccesfull)
+            checkForEnd();
     }
 
     //swap to workingPack
     if (src == swapStackT && dest == workingPackT){
+        if (game->getSwapStack()->isEmpty())
+            return false;
         //uspesne presunutie
         if (game->getWorkingPack(destIndex)->put(game->getSwapStack()->get())){
             game->getSwapStack()->pop();
@@ -68,6 +77,8 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
 
     //targetStack to workingPack
     if (src == targetStackT && dest == workingPackT){
+        if (game->getTargetStack(srcIndex)->isEmpty())
+            return false;
         //uspesne presunutie
         if (game->getWorkingPack(destIndex)->put(game->getTargetStack(srcIndex)->get())){
             game->getTargetStack(srcIndex)->pop();
@@ -79,13 +90,16 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
 
     //workingPack to targetStack
     if (src == workingPackT && dest == targetStackT){
-        //uspesne presunutie (iba jedna karta (ta co je navrchu) a je to validne)
+        //ak je prazdny
+        if (game->getWorkingPack(srcIndex)->isEmpty())
+            return false;
         //kvoli moznosti null v payloadHead
         bool test;
         if (payloadHead == nullptr)
             test = true;
         else
             test = *game->getWorkingPack(srcIndex)->get() == payloadHead;
+        //uspesne presunutie (iba jedna karta (ta co je navrchu) a je to validne)
         if ((payloadHead == nullptr || test) &&
                 game->getTargetStack(destIndex)->put(game->getWorkingPack(srcIndex)->get())
                 ){
@@ -100,6 +114,9 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
             mooveSuccesfull = true;
         }
         view->refresh(game->getWorkingPack(srcIndex), srcIndex);
+
+        if (mooveSuccesfull)
+            checkForEnd();
     }
 
     //workingPack to workingPack
@@ -127,30 +144,34 @@ void Controller::moove(boardElements src, int srcIndex, boardElements dest,
 
     //ulozenie historie
     if (mooveSuccesfull) {
-        game->getHistory()->recordMove(src, srcIndex, dest, destIndex, payloadHead, lastTurnUp);
         game->resetHelp();
+        if (!histBlock)
+            game->getHistory()->recordMove(src, srcIndex, dest, destIndex, payloadHead, lastTurnUp);
+        return true;
     }
+
+    return false;
 }
 
 /** Roll back. */
 void Controller::rollBack() {
-    histElement* move = game->getHistory()->rollBack();
-    if (move == nullptr) {
-        moove(gameBoard, 0, gameBoard, 0);
+    histElement* histPoint = game->getHistory()->rollBack();
+    if (histPoint == nullptr) {
+        move(gameBoard, 0, gameBoard, 0);
         return;
     }
-    timeTravel(move);
+    timeTravel(histPoint);
 
 }
 
 /** Roll forward. */
 void Controller::rollForward() {
-    histElement* move = game->getHistory()->rollForward();
-    if (move == nullptr){
-        moove(gameBoard, 0, gameBoard, 0);
+    histElement* histPoint = game->getHistory()->rollForward();
+    if (histPoint == nullptr){
+        move(gameBoard, 0, gameBoard, 0);
         return;
     }
-    timeTravel(move);
+    move(histPoint->src, histPoint->srcIndex, histPoint->dest, histPoint->destIndex, histPoint->payloadHead, true);
 }
 
 /** Help is used for giving the possible move to user */
@@ -310,6 +331,25 @@ void Controller::initGame() {
     }
     view->initClosure();
     view->print();
+}
+
+void Controller::gameWon() {
+    view->gameWon();
+    SLEEP(3000);
+    std::cout << CLRSCR;
+    exit(0);
+}
+
+void Controller::checkForEnd() {
+    bool flag = true;
+    for (int i = 0; i < 4; ++i) {
+        if (game->getTargetStack(i)->isEmpty() || game->getTargetStack(i)->get()->value() != 13){
+            flag = false;
+            break;
+        }
+    }
+    if (flag)
+        gameWon();
 }
 
 

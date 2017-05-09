@@ -58,11 +58,11 @@ bool WorkingPack::put(Card *card) {
  */
 
 bool WorkingPack::put(CardStack * stack) {
-    if (stack == nullptr)
+    if (stack == nullptr || stack->isEmpty())
         return false;
     //osetrenie na krala
     if(this->isEmpty()){
-        if (stack->get()->value() == 13){
+        if (stack->get(0)->value() == 13){
             for (int i = 0; i < stack->size(); ++i) {
                 this->put(stack->get(i));
             }
@@ -149,7 +149,7 @@ CardStack* WorkingPack::takeFrom(Card * card) {
     if (pos == -1)
         return nullptr;
     CardStack *retStack = new CardStack;
-    for (int i = this->size() - pos; i < this->size(); ++i) {
+    for (int i = pos; i < this->size(); ++i) {
         retStack->put(this->get(i));
     }
     return retStack;
